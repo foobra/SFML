@@ -182,7 +182,7 @@ extern int sfwgl_ext_ARB_create_context_profile;
 
 #ifndef WGL_EXT_swap_control
 #define WGL_EXT_swap_control 1
-extern int (CODEGEN_FUNCPTR *sf_ptrc_wglGetSwapIntervalEXT)(void);
+extern int (CODEGEN_FUNCPTR *sf_ptrc_wglGetSwapIntervalEXT)();
 #define wglGetSwapIntervalEXT sf_ptrc_wglGetSwapIntervalEXT
 extern BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglSwapIntervalEXT)(int);
 #define wglSwapIntervalEXT sf_ptrc_wglSwapIntervalEXT

@@ -46,13 +46,13 @@ int sfwgl_ext_ARB_pbuffer = sfwgl_LOAD_FAILED;
 int sfwgl_ext_ARB_create_context = sfwgl_LOAD_FAILED;
 int sfwgl_ext_ARB_create_context_profile = sfwgl_LOAD_FAILED;
 
-int (CODEGEN_FUNCPTR *sf_ptrc_wglGetSwapIntervalEXT)(void) = nullptr;
+int (CODEGEN_FUNCPTR *sf_ptrc_wglGetSwapIntervalEXT)() = nullptr;
 BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglSwapIntervalEXT)(int) = nullptr;
 
 static int Load_EXT_swap_control()
 {
     int numFailed = 0;
-    sf_ptrc_wglGetSwapIntervalEXT = reinterpret_cast<int (CODEGEN_FUNCPTR*)(void)>(IntGetProcAddress("wglGetSwapIntervalEXT"));
+    sf_ptrc_wglGetSwapIntervalEXT = reinterpret_cast<int (CODEGEN_FUNCPTR*)()>(IntGetProcAddress("wglGetSwapIntervalEXT"));
     if (!sf_ptrc_wglGetSwapIntervalEXT)
         numFailed++;
     sf_ptrc_wglSwapIntervalEXT = reinterpret_cast<BOOL (CODEGEN_FUNCPTR*)(int)>(IntGetProcAddress("wglSwapIntervalEXT"));
@@ -121,7 +121,7 @@ static int Load_ARB_create_context()
 
 static const char* (CODEGEN_FUNCPTR *sf_ptrc_wglGetExtensionsStringARB)(HDC) = nullptr;
 
-typedef int (*PFN_LOADFUNCPOINTERS)(void);
+typedef int (*PFN_LOADFUNCPOINTERS)();
 typedef struct sfwgl_StrToExtMap_s
 {
     const char* extensionName;
