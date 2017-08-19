@@ -37,7 +37,7 @@ namespace priv
 {
 ////////////////////////////////////////////////////////////
 RenderTextureImplFBO::RenderTextureImplFBO() :
-m_context    (NULL),
+m_context    (nullptr),
 m_frameBuffer(0),
 m_depthBuffer(0)
 {

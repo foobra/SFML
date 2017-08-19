@@ -51,7 +51,7 @@ namespace
         if (display == EGL_NO_DISPLAY)
         {
             display = eglCheck(eglGetDisplay(EGL_DEFAULT_DISPLAY));
-            eglCheck(eglInitialize(display, NULL, NULL));
+            eglCheck(eglInitialize(display, nullptr, nullptr));
         }
 
         return display;
@@ -59,7 +59,7 @@ namespace
 #elif defined(SFML_SYSTEM_ANDROID)
 
     // On Android, its native activity handles this for us
-    sf::priv::ActivityStates* states = sf::priv::getActivity(NULL);
+    sf::priv::ActivityStates* states = sf::priv::getActivity(nullptr);
     sf::Lock lock(states->mutex);
 
     return states->display;
@@ -78,7 +78,7 @@ EglContext::EglContext(EglContext* shared) :
 m_display (EGL_NO_DISPLAY),
 m_context (EGL_NO_CONTEXT),
 m_surface (EGL_NO_SURFACE),
-m_config  (NULL)
+m_config  (nullptr)
 {
     // Get the initialized EGL display
     m_display = getInitializedDisplay();
@@ -87,7 +87,7 @@ m_config  (NULL)
     m_config = getBestConfig(m_display, VideoMode::getDesktopMode().bitsPerPixel, ContextSettings());
     updateSettings();
 
-    // Note: The EGL specs say that attrib_list can be NULL when passed to eglCreatePbufferSurface,
+    // Note: The EGL specs say that attrib_list can be nullptr when passed to eglCreatePbufferSurface,
     // but this is resulting in a segfault. Bug in Android?
     EGLint attrib_list[] = {
         EGL_WIDTH, 1,
@@ -107,12 +107,12 @@ EglContext::EglContext(EglContext* shared, const ContextSettings& settings, cons
 m_display (EGL_NO_DISPLAY),
 m_context (EGL_NO_CONTEXT),
 m_surface (EGL_NO_SURFACE),
-m_config  (NULL)
+m_config  (nullptr)
 {
 #ifdef SFML_SYSTEM_ANDROID
 
     // On Android, we must save the created context
-    ActivityStates* states = getActivity(NULL);
+    ActivityStates* states = getActivity(nullptr);
     Lock lock(states->mutex);
 
     states->context = this;
@@ -142,7 +142,7 @@ EglContext::EglContext(EglContext* shared, const ContextSettings& settings, unsi
 m_display (EGL_NO_DISPLAY),
 m_context (EGL_NO_CONTEXT),
 m_surface (EGL_NO_SURFACE),
-m_config  (NULL)
+m_config  (nullptr)
 {
 }
 
@@ -223,7 +223,7 @@ void EglContext::createContext(EglContext* shared)
 ////////////////////////////////////////////////////////////
 void EglContext::createSurface(EGLNativeWindowType window)
 {
-    m_surface = eglCheck(eglCreateWindowSurface(m_display, m_config, window, NULL));
+    m_surface = eglCheck(eglCreateWindowSurface(m_display, m_config, window, nullptr));
 }
 
 

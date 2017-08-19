@@ -34,7 +34,7 @@
 
 namespace
 {
-    const sf::Window* fullscreenWindow = NULL;
+    const sf::Window* fullscreenWindow = nullptr;
 }
 
 
@@ -42,8 +42,8 @@ namespace sf
 {
 ////////////////////////////////////////////////////////////
 Window::Window() :
-m_impl          (NULL),
-m_context       (NULL),
+m_impl          (nullptr),
+m_context       (nullptr),
 m_frameTimeLimit(Time::Zero),
 m_size          (0, 0)
 {
@@ -53,8 +53,8 @@ m_size          (0, 0)
 
 ////////////////////////////////////////////////////////////
 Window::Window(VideoMode mode, const String& title, Uint32 style, const ContextSettings& settings) :
-m_impl          (NULL),
-m_context       (NULL),
+m_impl          (nullptr),
+m_context       (nullptr),
 m_frameTimeLimit(Time::Zero),
 m_size          (0, 0)
 {
@@ -64,8 +64,8 @@ m_size          (0, 0)
 
 ////////////////////////////////////////////////////////////
 Window::Window(WindowHandle handle, const ContextSettings& settings) :
-m_impl          (NULL),
-m_context       (NULL),
+m_impl          (nullptr),
+m_context       (nullptr),
 m_frameTimeLimit(Time::Zero),
 m_size          (0, 0)
 {
@@ -153,22 +153,22 @@ void Window::close()
 {
     // Delete the context
     delete m_context;
-    m_context = NULL;
+    m_context = nullptr;
 
     // Delete the window implementation
     delete m_impl;
-    m_impl = NULL;
+    m_impl = nullptr;
 
     // Update the fullscreen window
     if (this == fullscreenWindow)
-        fullscreenWindow = NULL;
+        fullscreenWindow = nullptr;
 }
 
 
 ////////////////////////////////////////////////////////////
 bool Window::isOpen() const
 {
-    return m_impl != NULL;
+    return m_impl != nullptr;
 }
 
 

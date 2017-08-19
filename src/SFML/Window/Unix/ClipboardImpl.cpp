@@ -49,7 +49,7 @@ bool is_fail = false;
 bool is_init = false;
 bool is_host = false;
 
-Display* display = NULL;
+Display* display = nullptr;
 Window window = 0;
 
 Atom selection = 0;
@@ -64,7 +64,7 @@ void initClipboard()
 {
     is_init = true;
 
-    display = XOpenDisplay(NULL);
+    display = XOpenDisplay(nullptr);
     int screen = DefaultScreen(display);
     window = XCreateSimpleWindow(display, RootWindow(display, screen),
         0, 0, 1, 1, 0, BlackPixel(display, screen), WhitePixel(display, screen));
@@ -80,14 +80,14 @@ void initClipboard()
         utf8_text = xa_string;
     }
 
-    if(pthread_mutex_init(&mutex, NULL))
+    if(pthread_mutex_init(&mutex, nullptr))
     {
         is_fail = true;
         std::cerr << "Unable to initialize mutex. Failed to initialize clipboard." << std::endl;
         return;
     }
 
-    if(pthread_create(&host_thread, NULL, hostSelection, NULL))
+    if(pthread_create(&host_thread, nullptr, hostSelection, nullptr))
     {
         is_fail = true;
         std::cerr << "Unable to create host thread. Failed to initialize clipboard." << std::endl;

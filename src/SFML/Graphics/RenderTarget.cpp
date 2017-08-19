@@ -101,7 +101,7 @@ void RenderTarget::clear(const Color& color)
     if (setActive(true))
     {
         // Unbind texture to fix RenderTexture preventing clear
-        applyTexture(NULL);
+        applyTexture(nullptr);
 
         glCheck(glClearColor(color.r / 255.f, color.g / 255.f, color.b / 255.f, color.a / 255.f));
         glCheck(glClear(GL_COLOR_BUFFER_BIT));
@@ -266,7 +266,7 @@ void RenderTarget::draw(const Vertex* vertices, std::size_t vertexCount,
             if (!m_cache.useVertexCache)
                 vertices = m_cache.vertexCache;
             else
-                vertices = NULL;
+                vertices = nullptr;
         }
 
         // Check if texture coordinates array is needed, and update client state accordingly
@@ -300,12 +300,12 @@ void RenderTarget::draw(const Vertex* vertices, std::size_t vertexCount,
 
         // Unbind the shader, if any
         if (states.shader)
-            applyShader(NULL);
+            applyShader(nullptr);
 
         // If the texture we used to draw belonged to a RenderTexture, then forcibly unbind that texture.
         // This prevents a bug where some drivers do not clear RenderTextures properly.
         if (states.texture && states.texture->m_fboAttachment)
-            applyTexture(NULL);
+            applyTexture(nullptr);
 
         // Update the cache
         m_cache.useVertexCache = useVertexCache;
@@ -398,9 +398,9 @@ void RenderTarget::resetGLStates()
         // Apply the default SFML states
         applyBlendMode(BlendAlpha);
         applyTransform(Transform::Identity);
-        applyTexture(NULL);
+        applyTexture(nullptr);
         if (shaderAvailable)
-            applyShader(NULL);
+            applyShader(nullptr);
 
         m_cache.texCoordsArrayEnabled = true;
 

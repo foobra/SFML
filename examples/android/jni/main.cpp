@@ -31,7 +31,7 @@ int vibrate(sf::Time duration)
     JavaVMAttachArgs attachargs;
     attachargs.version = JNI_VERSION_1_6;
     attachargs.name = "NativeThread";
-    attachargs.group = NULL;
+    attachargs.group = nullptr;
     jint res = vm->AttachCurrentThread(&env, &attachargs);
 
     if (res == JNI_ERR)

@@ -36,7 +36,7 @@ namespace priv
 
 ////////////////////////////////////////////////////////////
 CursorImpl::CursorImpl() :
-m_cursor(NULL)
+m_cursor(nullptr)
 {
     // That's it.
 }
@@ -69,18 +69,18 @@ bool CursorImpl::loadFromPixels(const Uint8* pixels, Vector2u size, Vector2u hot
     bitmapHeader.bV5BlueMask    = 0x000000ff;
     bitmapHeader.bV5AlphaMask   = 0xff000000;
 
-    Uint8* bitmapData = NULL;
+    Uint8* bitmapData = nullptr;
 
-    HDC screenDC = GetDC(NULL);
+    HDC screenDC = GetDC(nullptr);
     HBITMAP color = CreateDIBSection(
         screenDC,
         reinterpret_cast<const BITMAPINFO*>(&bitmapHeader),
         DIB_RGB_COLORS,
         reinterpret_cast<void**>(&bitmapData),
-        NULL,
+        nullptr,
         0
     );
-    ReleaseDC(NULL, screenDC);
+    ReleaseDC(nullptr, screenDC);
 
     if (!color)
     {
@@ -92,7 +92,7 @@ bool CursorImpl::loadFromPixels(const Uint8* pixels, Vector2u size, Vector2u hot
     std::memcpy(bitmapData, pixels, size.x * size.y * 4);
 
     // Create a dummy mask bitmap (it won't be used)
-    HBITMAP mask = CreateBitmap(size.x, size.y, 1, 1, NULL);
+    HBITMAP mask = CreateBitmap(size.x, size.y, 1, 1, nullptr);
 
     if (!mask)
     {
@@ -154,7 +154,7 @@ bool CursorImpl::loadFromSystem(Cursor::Type type)
     }
 
     // Create a copy of the shared system cursor that we can destroy later
-    m_cursor = CopyCursor(LoadCursor(NULL, shape));
+    m_cursor = CopyCursor(LoadCursor(nullptr, shape));
 
     if (m_cursor)
     {
@@ -173,7 +173,7 @@ void CursorImpl::release()
 {
     if (m_cursor) {
         DestroyCursor(m_cursor);
-        m_cursor = NULL;
+        m_cursor = nullptr;
     }
 }
 

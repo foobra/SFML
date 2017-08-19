@@ -139,10 +139,10 @@ namespace
     unsigned int resourceCount = 0;
 
     // This per-thread variable holds the current context for each thread
-    sf::ThreadLocalPtr<sf::priv::GlContext> currentContext(NULL);
+    sf::ThreadLocalPtr<sf::priv::GlContext> currentContext(nullptr);
 
     // The hidden, inactive context that will be shared with all other contexts
-    ContextType* sharedContext = NULL;
+    ContextType* sharedContext = nullptr;
 
     // This structure contains all the state necessary to
     // track TransientContext usage
@@ -194,7 +194,7 @@ namespace
 
     // This per-thread variable tracks if and how a transient
     // context is currently being used on the current thread
-    sf::ThreadLocalPtr<TransientContext> transientContext(NULL);
+    sf::ThreadLocalPtr<TransientContext> transientContext(nullptr);
 
     // Supported OpenGL extensions
     std::vector<std::string> extensions;
@@ -223,7 +223,7 @@ void GlContext::initResource()
         }
 
         // Create the shared context
-        sharedContext = new ContextType(NULL);
+        sharedContext = new ContextType(nullptr);
         sharedContext->initialize(ContextSettings());
 
         // Load our extensions vector
@@ -252,7 +252,7 @@ void GlContext::initResource()
         else
         {
             // Try to load the >= 3.0 way
-            glGetStringiFuncType glGetStringiFunc = NULL;
+            glGetStringiFuncType glGetStringiFunc = nullptr;
             glGetStringiFunc = reinterpret_cast<glGetStringiFuncType>(getFunction("glGetStringi"));
 
             if (glGetStringiFunc)
@@ -298,7 +298,7 @@ void GlContext::cleanupResource()
 
         // Destroy the shared context
         delete sharedContext;
-        sharedContext = NULL;
+        sharedContext = nullptr;
     }
 }
 
@@ -336,7 +336,7 @@ void GlContext::releaseTransientContext()
     if (transientContext->referenceCount == 0)
     {
         delete transientContext;
-        transientContext = NULL;
+        transientContext = nullptr;
     }
 }
 
@@ -345,11 +345,11 @@ void GlContext::releaseTransientContext()
 GlContext* GlContext::create()
 {
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
-    assert(sharedContext != NULL);
+    assert(sharedContext != nullptr);
 
     std::lock_guard<std::recursive_mutex> lock(mutex);
 
-    GlContext* context = NULL;
+    GlContext* context = nullptr;
 
     // We don't use acquireTransientContext here since we have
     // to ensure we have exclusive access to the shared context
@@ -373,11 +373,11 @@ GlContext* GlContext::create()
 GlContext* GlContext::create(const ContextSettings& settings, const WindowImpl* owner, unsigned int bitsPerPixel)
 {
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
-    assert(sharedContext != NULL);
+    assert(sharedContext != nullptr);
 
     std::lock_guard<std::recursive_mutex> lock(mutex);
 
-    GlContext* context = NULL;
+    GlContext* context = nullptr;
 
     // We don't use acquireTransientContext here since we have
     // to ensure we have exclusive access to the shared context
@@ -402,11 +402,11 @@ GlContext* GlContext::create(const ContextSettings& settings, const WindowImpl* 
 GlContext* GlContext::create(const ContextSettings& settings, unsigned int width, unsigned int height)
 {
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
-    assert(sharedContext != NULL);
+    assert(sharedContext != nullptr);
 
     std::lock_guard<std::recursive_mutex> lock(mutex);
 
-    GlContext* context = NULL;
+    GlContext* context = nullptr;
 
     // We don't use acquireTransientContext here since we have
     // to ensure we have exclusive access to the shared context
@@ -458,7 +458,7 @@ GlContext::~GlContext()
     if (sharedContext)
     {
         if (this == currentContext)
-            currentContext = NULL;
+            currentContext = nullptr;
     }
 }
 
@@ -506,7 +506,7 @@ bool GlContext::setActive(bool active)
             // Deactivate the context
             if (makeCurrent(false))
             {
-                currentContext = NULL;
+                currentContext = nullptr;
                 return true;
             }
             else
