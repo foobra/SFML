@@ -204,7 +204,7 @@ protected:
     /// This constructor is meant for derived classes only.
     ///
     ////////////////////////////////////////////////////////////
-    GlContext();
+    GlContext() = default;
 
     ////////////////////////////////////////////////////////////
     /// \brief Activate the context as the current target

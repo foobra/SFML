@@ -51,7 +51,7 @@ namespace priv
 /// \brief Windows implementation of joysticks
 ///
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

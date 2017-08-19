@@ -41,7 +41,7 @@ namespace priv
 /// \brief Linux (GLX) implementation of OpenGL contexts
 ///
 ////////////////////////////////////////////////////////////
-class GlxContext : public GlContext
+class GlxContext final : public GlContext
 {
 public:
 

@@ -34,7 +34,7 @@ namespace priv
 /// \brief Android implementation of joysticks
 ///
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

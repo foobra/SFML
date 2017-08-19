@@ -39,7 +39,7 @@
 namespace sf
 {
 ////////////////////////////////////////////////////////////
-class Ftp::DataChannel : NonCopyable
+class Ftp::DataChannel final : NonCopyable
 {
 public:
 

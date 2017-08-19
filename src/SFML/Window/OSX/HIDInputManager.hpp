@@ -51,7 +51,7 @@ typedef std::vector<IOHIDElementRef> IOHIDElements;
 /// Its purpose is to help sf::priv::InputImpl class.
 ///
 ////////////////////////////////////////////////////////////
-class HIDInputManager : NonCopyable
+class HIDInputManager final : NonCopyable
 {
 public:
 

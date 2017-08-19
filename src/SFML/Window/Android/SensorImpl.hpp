@@ -40,7 +40,7 @@ namespace priv
 /// \brief Android implementation of sensors
 ///
 ////////////////////////////////////////////////////////////
-class SensorImpl
+class SensorImpl final
 {
 public:
 

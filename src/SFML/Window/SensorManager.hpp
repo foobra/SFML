@@ -41,7 +41,7 @@ namespace priv
 /// \brief Global sensor manager
 ///
 ////////////////////////////////////////////////////////////
-class SensorManager : NonCopyable
+class SensorManager final : NonCopyable
 {
 public:
 

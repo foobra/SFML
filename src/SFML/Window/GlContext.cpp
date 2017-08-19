@@ -523,12 +523,6 @@ bool GlContext::setActive(bool active)
 }
 
 
-////////////////////////////////////////////////////////////
-GlContext::GlContext()
-{
-    // Nothing to do
-}
-
 
 ////////////////////////////////////////////////////////////
 int GlContext::evaluateFormat(unsigned int bitsPerPixel, const ContextSettings& settings, int colorBits, int depthBits, int stencilBits, int antialiasing, bool accelerated, bool sRgb)

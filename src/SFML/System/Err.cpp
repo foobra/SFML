@@ -34,7 +34,7 @@ namespace
 {
 // This class will be used as the default streambuf of sf::Err,
 // it outputs to stderr by default (to keep the default behavior)
-class DefaultErrStreamBuf : public std::streambuf
+class DefaultErrStreamBuf final : public std::streambuf
 {
 public:
 
@@ -46,8 +46,7 @@ public:
         setp(buffer, buffer + size);
     }
 
-    ~DefaultErrStreamBuf()
-    {
+    ~DefaultErrStreamBuf() override {
         // Synchronize
         sync();
 
@@ -57,8 +56,7 @@ public:
 
 private:
 
-    virtual int overflow(int character)
-    {
+    int overflow(int character) override {
         if ((character != EOF) && (pptr() != epptr()))
         {
             // Valid character
@@ -77,8 +75,7 @@ private:
         }
     }
 
-    virtual int sync()
-    {
+    int sync() override {
         // Check if there is something into the write buffer
         if (pbase() != pptr())
         {

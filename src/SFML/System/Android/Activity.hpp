@@ -39,7 +39,7 @@
 #include <string>
 #include <fstream>
 
-class SFML_SYSTEM_API LogcatStream : public std::streambuf
+class SFML_SYSTEM_API LogcatStream final : public std::streambuf
 {
 public:
     LogcatStream();

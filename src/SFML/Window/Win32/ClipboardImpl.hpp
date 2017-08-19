@@ -39,7 +39,7 @@ namespace priv
 /// \brief Give access to the system clipboard
 ///
 ////////////////////////////////////////////////////////////
-class ClipboardImpl
+class ClipboardImpl final
 {
 public:
 

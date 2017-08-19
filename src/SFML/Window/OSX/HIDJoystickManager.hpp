@@ -44,7 +44,7 @@ namespace priv
 /// It's only purpose is to help sf::priv::JoystickImpl class.
 ///
 ////////////////////////////////////////////////////////////
-class HIDJoystickManager : NonCopyable
+class HIDJoystickManager final : NonCopyable
 {
 public:
 
