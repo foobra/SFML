@@ -45,7 +45,7 @@ namespace priv
 /// \brief Mac OS X implementation of joysticks
 ///
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

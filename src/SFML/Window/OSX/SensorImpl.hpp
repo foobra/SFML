@@ -34,7 +34,7 @@ namespace priv
 /// \brief Mac OS X implementation of sensors
 ///
 ////////////////////////////////////////////////////////////
-class SensorImpl
+class SensorImpl final
 {
 public:
 

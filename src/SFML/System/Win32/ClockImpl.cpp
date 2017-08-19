@@ -64,10 +64,10 @@ Time ClockImpl::getCurrentTime()
 
     if (oldWindows)
     {
-        static sf::Mutex oldWindowsMutex;
+        static std::recursive_mutex oldWindowsMutex;
 
         // Acquire a lock (CRITICAL_SECTION) to prevent travelling back in time
-        Lock lock(oldWindowsMutex);
+        std::lock_guard<std::recursive_mutex> lock(oldWindowsMutex);
 
         // Get the current time
         QueryPerformanceCounter(&time);

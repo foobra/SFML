@@ -47,7 +47,7 @@ namespace priv
 ///        socket stuff; this is the Unix version
 ///
 ////////////////////////////////////////////////////////////
-class SocketImpl
+class SocketImpl final
 {
 public:
 

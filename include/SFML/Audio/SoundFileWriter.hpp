@@ -46,7 +46,7 @@ public:
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~SoundFileWriter() {}
+    virtual ~SoundFileWriter() = default;
 
     ////////////////////////////////////////////////////////////
     /// \brief Open a sound file for writing

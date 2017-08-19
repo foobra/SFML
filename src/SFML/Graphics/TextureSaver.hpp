@@ -39,7 +39,7 @@ namespace priv
 /// \brief Automatic wrapper for saving and restoring the current texture binding
 ///
 ////////////////////////////////////////////////////////////
-class TextureSaver
+class TextureSaver final
 {
 public:
 

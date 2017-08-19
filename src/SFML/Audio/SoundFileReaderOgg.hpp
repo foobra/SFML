@@ -40,7 +40,7 @@ namespace priv
 /// \brief Implementation of sound file reader that handles OGG/Vorbis files
 ///
 ////////////////////////////////////////////////////////////
-class SoundFileReaderOgg : public SoundFileReader
+class SoundFileReaderOgg final : public SoundFileReader
 {
 public:
 
@@ -66,7 +66,7 @@ public:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    ~SoundFileReaderOgg();
+    ~SoundFileReaderOgg() override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Open a sound file for reading
@@ -77,7 +77,7 @@ public:
     /// \return True if the file was successfully opened
     ///
     ////////////////////////////////////////////////////////////
-    virtual bool open(InputStream& stream, Info& info);
+    bool open(InputStream& stream, Info& info) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Change the current read position to the given sample offset
@@ -91,7 +91,7 @@ public:
     /// \param sampleOffset Index of the sample to jump to, relative to the beginning
     ///
     ////////////////////////////////////////////////////////////
-    virtual void seek(Uint64 sampleOffset);
+    void seek(Uint64 sampleOffset) override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Read audio samples from the open file
@@ -102,7 +102,7 @@ public:
     /// \return Number of samples actually read (may be less than \a maxCount)
     ///
     ////////////////////////////////////////////////////////////
-    virtual Uint64 read(Int16* samples, Uint64 maxCount);
+    Uint64 read(Int16* samples, Uint64 maxCount) override;
 
 private:
 

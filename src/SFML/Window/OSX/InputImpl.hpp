@@ -41,7 +41,7 @@ namespace priv
 /// \brief Mac OS X implementation of inputs (keyboard + mouse)
 ///
 ////////////////////////////////////////////////////////////
-class InputImpl
+class InputImpl final
 {
 public:
 

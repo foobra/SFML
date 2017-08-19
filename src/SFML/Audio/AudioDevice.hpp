@@ -43,7 +43,7 @@ namespace priv
 ///        context and stores the device capabilities
 ///
 ////////////////////////////////////////////////////////////
-class AudioDevice
+class AudioDevice final
 {
 public:
 

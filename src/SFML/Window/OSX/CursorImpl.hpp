@@ -56,7 +56,7 @@ namespace priv
 /// \brief Mac OS X implementation of Cursor
 ///
 ////////////////////////////////////////////////////////////
-class CursorImpl : NonCopyable
+class CursorImpl final : NonCopyable
 {
 public:
 

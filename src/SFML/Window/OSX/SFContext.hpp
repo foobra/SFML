@@ -62,7 +62,7 @@ namespace priv
 /// \brief OSX (Cocoa) implementation of OpenGL contexts
 ///
 ////////////////////////////////////////////////////////////
-class SFContext : public GlContext
+class SFContext final : public GlContext
 {
 public:
     ////////////////////////////////////////////////////////////
