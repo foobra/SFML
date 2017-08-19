@@ -40,7 +40,7 @@ namespace priv
 /// \brief Linux (X11) implementation of inputs (keyboard + mouse)
 ///
 ////////////////////////////////////////////////////////////
-class InputImpl
+class InputImpl final
 {
 public:
 

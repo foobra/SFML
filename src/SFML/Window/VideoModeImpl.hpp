@@ -39,7 +39,7 @@ namespace priv
 /// \brief OS-specific implementation of video modes functions
 ///
 ////////////////////////////////////////////////////////////
-class VideoModeImpl
+class VideoModeImpl final
 {
 public:
 

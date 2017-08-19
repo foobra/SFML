@@ -51,7 +51,7 @@ protected:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    ~AlResource();
+    virtual ~AlResource();
 };
 
 } // namespace sf

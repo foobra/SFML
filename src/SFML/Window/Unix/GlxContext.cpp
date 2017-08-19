@@ -48,7 +48,7 @@ namespace
         return 0;
     }
 
-    class GlxErrorHandler
+    class GlxErrorHandler final
     {
     public:
 

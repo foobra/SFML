@@ -40,7 +40,7 @@ namespace priv
 /// \brief Windows implementation of sf::Clock
 ///
 ////////////////////////////////////////////////////////////
-class ClockImpl
+class ClockImpl final
 {
 public:
 

@@ -41,7 +41,7 @@ namespace priv
 ///
 /// This code has been tested on FreeBSD 9.1 only.
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

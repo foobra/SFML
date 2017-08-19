@@ -47,7 +47,7 @@ public:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~RenderTextureImpl();
+    virtual ~RenderTextureImpl() = default;
 
     ////////////////////////////////////////////////////////////
     /// \brief Create the render texture implementation

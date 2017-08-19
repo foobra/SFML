@@ -38,9 +38,7 @@ const std::size_t String::InvalidPos = std::basic_string<Uint32>::npos;
 
 
 ////////////////////////////////////////////////////////////
-String::String()
-{
-}
+String::String() = default;
 
 
 ////////////////////////////////////////////////////////////
@@ -126,13 +124,10 @@ m_string(utf32String)
 
 
 ////////////////////////////////////////////////////////////
-String::String(const String& copy) :
-m_string(copy.m_string)
-{
-}
+String::String(const String& copy) = default;
 
 
-////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 String::operator std::string() const
 {
     return toAnsiString();
@@ -210,14 +205,10 @@ std::basic_string<Uint32> String::toUtf32() const
 
 
 ////////////////////////////////////////////////////////////
-String& String::operator =(const String& right)
-{
-    m_string = right.m_string;
-    return *this;
-}
+String& String::operator =(const String& right) = default;
 
 
-////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
 String& String::operator +=(const String& right)
 {
     m_string += right.m_string;

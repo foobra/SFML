@@ -40,7 +40,7 @@ namespace priv
 /// \brief Linux implementation of joysticks
 ///
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

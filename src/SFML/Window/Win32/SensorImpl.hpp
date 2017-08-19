@@ -34,7 +34,7 @@ namespace priv
 /// \brief Windows implementation of sensors
 ///
 ////////////////////////////////////////////////////////////
-class SensorImpl
+class SensorImpl final
 {
 public:
 

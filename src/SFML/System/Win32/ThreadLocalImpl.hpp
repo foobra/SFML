@@ -39,7 +39,7 @@ namespace priv
 ////////////////////////////////////////////////////////////
 /// \brief Windows implementation of thread-local storage
 ////////////////////////////////////////////////////////////
-class ThreadLocalImpl : NonCopyable
+class ThreadLocalImpl final : NonCopyable
 {
 public:
 

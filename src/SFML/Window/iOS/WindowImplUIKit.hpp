@@ -46,7 +46,7 @@ namespace priv
 /// \brief iOS (UIKit) implementation of WindowImpl
 ///
 ////////////////////////////////////////////////////////////
-class WindowImplUIKit : public WindowImpl
+class WindowImplUIKit final : public WindowImpl
 {
 public:
 

@@ -39,7 +39,7 @@ namespace priv
 /// \brief iOS implementation of joysticks
 ///
 ////////////////////////////////////////////////////////////
-class JoystickImpl
+class JoystickImpl final
 {
 public:
 

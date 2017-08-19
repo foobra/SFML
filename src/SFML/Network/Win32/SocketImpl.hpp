@@ -50,7 +50,7 @@ namespace priv
 ///        socket stuff; this is the Windows version
 ///
 ////////////////////////////////////////////////////////////
-class SocketImpl
+class SocketImpl final
 {
 public:
 

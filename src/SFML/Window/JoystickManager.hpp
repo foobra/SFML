@@ -41,7 +41,7 @@ namespace priv
 /// \brief Global joystick manager
 ///
 ////////////////////////////////////////////////////////////
-class JoystickManager : NonCopyable
+class JoystickManager final : NonCopyable
 {
 public:
 

@@ -39,7 +39,7 @@ namespace priv
 /// \brief iOS implementation of sensors
 ///
 ////////////////////////////////////////////////////////////
-class SensorImpl
+class SensorImpl final
 {
 public:
 

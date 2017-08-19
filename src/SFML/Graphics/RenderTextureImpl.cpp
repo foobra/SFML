@@ -32,11 +32,6 @@ namespace sf
 {
 namespace priv
 {
-////////////////////////////////////////////////////////////
-RenderTextureImpl::~RenderTextureImpl()
-{
-    // Nothing to do
-}
 
 } // namespace priv
 

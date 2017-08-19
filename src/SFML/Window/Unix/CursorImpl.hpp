@@ -43,7 +43,7 @@ namespace priv
 /// \brief Unix implementation of Cursor
 ///
 ////////////////////////////////////////////////////////////
-class CursorImpl : NonCopyable
+class CursorImpl final : NonCopyable
 {
 public:
 
