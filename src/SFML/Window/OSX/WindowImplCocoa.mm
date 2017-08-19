@@ -170,7 +170,7 @@ void WindowImplCocoa::applyContext(NSOpenGLContextRef context) const
 
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::setUpProcess(void)
+void WindowImplCocoa::setUpProcess()
 {
     static bool isTheProcessSetAsApplication = false;
 
@@ -206,7 +206,7 @@ void WindowImplCocoa::setUpProcess(void)
 
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::windowClosed(void)
+void WindowImplCocoa::windowClosed()
 {
     Event event;
     event.type = Event::Closed;
@@ -229,7 +229,7 @@ void WindowImplCocoa::windowResized(unsigned int width, unsigned int height)
 
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::windowLostFocus(void)
+void WindowImplCocoa::windowLostFocus()
 {
     if (!m_showCursor && [m_delegate isMouseInside])
         showMouseCursor(); // Make sure the cursor is visible
@@ -242,7 +242,7 @@ void WindowImplCocoa::windowLostFocus(void)
 
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::windowGainedFocus(void)
+void WindowImplCocoa::windowGainedFocus()
 {
     if (!m_showCursor && [m_delegate isMouseInside])
         hideMouseCursor(); // Restore user's setting
@@ -327,7 +327,7 @@ void WindowImplCocoa::mouseWheelScrolledAt(float deltaX, float deltaY, int x, in
 }
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::mouseMovedIn(void)
+void WindowImplCocoa::mouseMovedIn()
 {
     if (!m_showCursor)
         hideMouseCursor(); // Restore user's setting
@@ -339,7 +339,7 @@ void WindowImplCocoa::mouseMovedIn(void)
 }
 
 ////////////////////////////////////////////////////////////
-void WindowImplCocoa::mouseMovedOut(void)
+void WindowImplCocoa::mouseMovedOut()
 {
     if (!m_showCursor)
         showMouseCursor(); // Make sure the cursor is visible

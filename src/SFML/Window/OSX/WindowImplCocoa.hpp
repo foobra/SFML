@@ -178,7 +178,7 @@ public:
     /// Send the event to SFML WindowImpl class.
     ///
     ////////////////////////////////////////////////////////////
-    void mouseMovedIn(void);
+    void mouseMovedIn();
 
     ////////////////////////////////////////////////////////////
     /// \brief Mouse Out Event - called by the cocoa view object
@@ -186,7 +186,7 @@ public:
     /// Send the event to SFML WindowImpl class.
     ///
     ////////////////////////////////////////////////////////////
-    void mouseMovedOut(void);
+    void mouseMovedOut();
 
     ////////////////////////////////////////////////////////////
     /// \brief Key Down Event - called by the cocoa view object
@@ -235,7 +235,7 @@ public:
     /// Also ensure NSApp is constructed.
     ///
     ////////////////////////////////////////////////////////////
-    static void setUpProcess(void);
+    static void setUpProcess();
 
 public:
 

@@ -64,7 +64,7 @@ static void destroyPool(void* data)
 /// \brief (local function) Init the pthread key for the pool
 ///
 ////////////////////////////////////////////////////////////
-static void createPoolKey(void)
+static void createPoolKey()
 {
     pthread_key_create(&poolKey, destroyPool);
 }
@@ -74,7 +74,7 @@ static void createPoolKey(void)
 /// \brief (local function) Store a new pool for this thread
 ///
 ////////////////////////////////////////////////////////////
-static void createNewPool(void)
+static void createNewPool()
 {
     NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     pthread_setspecific(poolKey, pool);
@@ -82,7 +82,7 @@ static void createNewPool(void)
 
 
 ////////////////////////////////////////////////////////////
-void ensureThreadHasPool(void)
+void ensureThreadHasPool()
 {
     pthread_once(&initOnceToken, createPoolKey);
     if (pthread_getspecific(poolKey) == nullptr)
@@ -93,7 +93,7 @@ void ensureThreadHasPool(void)
 
 
 ////////////////////////////////////////////////////////////
-void drainThreadPool(void)
+void drainThreadPool()
 {
     void* data = pthread_getspecific(poolKey);
     assert(data != nullptr);

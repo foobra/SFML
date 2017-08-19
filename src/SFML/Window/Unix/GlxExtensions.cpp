@@ -49,7 +49,7 @@ int sfglx_ext_ARB_create_context_profile = sfglx_LOAD_FAILED;
 
 void (CODEGEN_FUNCPTR *sf_ptrc_glXSwapIntervalEXT)(Display*, GLXDrawable, int) = nullptr;
 
-static int Load_EXT_swap_control(void)
+static int Load_EXT_swap_control()
 {
     int numFailed = 0;
     sf_ptrc_glXSwapIntervalEXT = reinterpret_cast<void (CODEGEN_FUNCPTR*)(Display*, GLXDrawable, int)>(IntGetProcAddress("glXSwapIntervalEXT"));
@@ -60,7 +60,7 @@ static int Load_EXT_swap_control(void)
 
 int (CODEGEN_FUNCPTR *sf_ptrc_glXSwapIntervalMESA)(int) = nullptr;
 
-static int Load_MESA_swap_control(void)
+static int Load_MESA_swap_control()
 {
     int numFailed = 0;
     sf_ptrc_glXSwapIntervalMESA = reinterpret_cast<int (CODEGEN_FUNCPTR*)(int)>(IntGetProcAddress("glXSwapIntervalMESA"));
@@ -71,7 +71,7 @@ static int Load_MESA_swap_control(void)
 
 int (CODEGEN_FUNCPTR *sf_ptrc_glXSwapIntervalSGI)(int) = nullptr;
 
-static int Load_SGI_swap_control(void)
+static int Load_SGI_swap_control()
 {
     int numFailed = 0;
     sf_ptrc_glXSwapIntervalSGI = reinterpret_cast<int (CODEGEN_FUNCPTR *)(int)>(IntGetProcAddress("glXSwapIntervalSGI"));
@@ -86,7 +86,7 @@ void (CODEGEN_FUNCPTR *sf_ptrc_glXGetSelectedEventSGIX)(Display*, GLXDrawable, u
 int (CODEGEN_FUNCPTR *sf_ptrc_glXQueryGLXPbufferSGIX)(Display*, GLXPbufferSGIX, int, unsigned int*) = nullptr;
 void (CODEGEN_FUNCPTR *sf_ptrc_glXSelectEventSGIX)(Display*, GLXDrawable, unsigned long) = nullptr;
 
-static int Load_SGIX_pbuffer(void)
+static int Load_SGIX_pbuffer()
 {
     int numFailed = 0;
     sf_ptrc_glXCreateGLXPbufferSGIX = reinterpret_cast<GLXPbufferSGIX (CODEGEN_FUNCPTR*)(Display*, GLXFBConfigSGIX, unsigned int, unsigned int, int*)>(IntGetProcAddress("glXCreateGLXPbufferSGIX"));
@@ -109,7 +109,7 @@ static int Load_SGIX_pbuffer(void)
 
 GLXContext (CODEGEN_FUNCPTR *sf_ptrc_glXCreateContextAttribsARB)(Display*, GLXFBConfig, GLXContext, Bool, const int*) = nullptr;
 
-static int Load_ARB_create_context(void)
+static int Load_ARB_create_context()
 {
     int numFailed = 0;
     sf_ptrc_glXCreateContextAttribsARB = reinterpret_cast<GLXContext (CODEGEN_FUNCPTR*)(Display*, GLXFBConfig, GLXContext, Bool, const int*)>(IntGetProcAddress("glXCreateContextAttribsARB"));
@@ -154,7 +154,7 @@ static sfglx_StrToExtMap* FindExtEntry(const char* extensionName)
 }
 
 
-static void ClearExtensionVars(void)
+static void ClearExtensionVars()
 {
     sfglx_ext_EXT_swap_control = sfglx_LOAD_FAILED;
     sfglx_ext_MESA_swap_control = sfglx_LOAD_FAILED;

@@ -49,7 +49,7 @@ int sfwgl_ext_ARB_create_context_profile = sfwgl_LOAD_FAILED;
 int (CODEGEN_FUNCPTR *sf_ptrc_wglGetSwapIntervalEXT)(void) = nullptr;
 BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglSwapIntervalEXT)(int) = nullptr;
 
-static int Load_EXT_swap_control(void)
+static int Load_EXT_swap_control()
 {
     int numFailed = 0;
     sf_ptrc_wglGetSwapIntervalEXT = reinterpret_cast<int (CODEGEN_FUNCPTR*)(void)>(IntGetProcAddress("wglGetSwapIntervalEXT"));
@@ -65,7 +65,7 @@ BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglChoosePixelFormatARB)(HDC, const int*, const F
 BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglGetPixelFormatAttribfvARB)(HDC, int, int, UINT, const int*, FLOAT*) = nullptr;
 BOOL (CODEGEN_FUNCPTR *sf_ptrc_wglGetPixelFormatAttribivARB)(HDC, int, int, UINT, const int*, int*) = nullptr;
 
-static int Load_ARB_pixel_format(void)
+static int Load_ARB_pixel_format()
 {
     int numFailed = 0;
     sf_ptrc_wglChoosePixelFormatARB = reinterpret_cast<BOOL (CODEGEN_FUNCPTR*)(HDC, const int*, const FLOAT*, UINT, int*, UINT*)>(IntGetProcAddress("wglChoosePixelFormatARB"));
@@ -109,7 +109,7 @@ static int Load_ARB_pbuffer()
 
 HGLRC (CODEGEN_FUNCPTR *sf_ptrc_wglCreateContextAttribsARB)(HDC, HGLRC, const int*) = nullptr;
 
-static int Load_ARB_create_context(void)
+static int Load_ARB_create_context()
 {
     int numFailed = 0;
     sf_ptrc_wglCreateContextAttribsARB = reinterpret_cast<HGLRC (CODEGEN_FUNCPTR*)(HDC, HGLRC, const int*)>(IntGetProcAddress("wglCreateContextAttribsARB"));
@@ -156,7 +156,7 @@ static sfwgl_StrToExtMap* FindExtEntry(const char* extensionName)
 }
 
 
-static void ClearExtensionVars(void)
+static void ClearExtensionVars()
 {
     sfwgl_ext_EXT_swap_control = sfwgl_LOAD_FAILED;
     sfwgl_ext_EXT_framebuffer_sRGB = sfwgl_LOAD_FAILED;
