@@ -71,13 +71,13 @@ bool CursorImpl::loadFromSystem(Cursor::Type type)
     {
         default: return false;
 
-        case Cursor::Arrow:           m_cursor = [NSCursor arrowCursor];               break;
-        case Cursor::Text:            m_cursor = [NSCursor IBeamCursor];               break;
-        case Cursor::Hand:            m_cursor = [NSCursor pointingHandCursor];        break;
-        case Cursor::SizeHorizontal:  m_cursor = [NSCursor resizeLeftRightCursor];     break;
-        case Cursor::SizeVertical:    m_cursor = [NSCursor resizeUpDownCursor];        break;
-        case Cursor::Cross:           m_cursor = [NSCursor crosshairCursor];           break;
-        case Cursor::NotAllowed:      m_cursor = [NSCursor operationNotAllowedCursor]; break;
+        case Cursor::Type::Arrow:           m_cursor = [NSCursor arrowCursor];               break;
+        case Cursor::Type::Text:            m_cursor = [NSCursor IBeamCursor];               break;
+        case Cursor::Type::Hand:            m_cursor = [NSCursor pointingHandCursor];        break;
+        case Cursor::Type::SizeHorizontal:  m_cursor = [NSCursor resizeLeftRightCursor];     break;
+        case Cursor::Type::SizeVertical:    m_cursor = [NSCursor resizeUpDownCursor];        break;
+        case Cursor::Type::Cross:           m_cursor = [NSCursor crosshairCursor];           break;
+        case Cursor::Type::NotAllowed:      m_cursor = [NSCursor operationNotAllowedCursor]; break;
     }
 
     // Since we didn't allocate the cursor ourself, we have to retain it
