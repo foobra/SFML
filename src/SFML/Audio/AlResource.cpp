@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////
 //
 // SFML - Simple and Fast Multimedia Library
 // Copyright (C) 2007-2017 Laurent Gomila (laurent@sfml-dev.org)
@@ -26,52 +26,39 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/AlResource.hpp>
+#include <SFML/System/Singleton.hpp>
 #include <SFML/Audio/AudioDevice.hpp>
-#include <mutex>
-
-
-namespace
-{
-    // OpenAL resources counter and its mutex
-    unsigned int         count = 0;
-    std::recursive_mutex mutex;
-
-    // The audio device is instantiated on demand rather than at global startup,
-    // which solves a lot of weird crashes and errors.
-    // It is destroyed when it is no longer needed.
-    sf::priv::AudioDevice* globalDevice;
-}
+#include <SFML/System/SmartPointerDefines.hpp>
 
 
 namespace sf
 {
+
+
+#define inner (Singleton<InnerType>::Get())
+struct InnerType
+{
+    // The audio device is instantiated on demand rather than at global startup,
+    // which solves a lot of weird crashes and errors.
+    // It is destroyed when it is no longer needed.
+    WP<sf::priv::AudioDevice> globalDevice;
+};
+
 ////////////////////////////////////////////////////////////
 AlResource::AlResource()
 {
-    // Protect from concurrent access
-    std::lock_guard<std::recursive_mutex> lock(mutex);
-
     // If this is the very first resource, trigger the global device initialization
-    if (count == 0)
-        globalDevice = new priv::AudioDevice;
-
-    // Increment the resources counter
-    count++;
+    if (auto device = inner.globalDevice.lock())
+    {
+        deviceHolder = device;
+    }
+    else
+    {
+        deviceHolder = MakeSP<sf::priv::AudioDevice>();
+        inner.globalDevice = deviceHolder;
+    }
 }
 
 
-////////////////////////////////////////////////////////////
-AlResource::~AlResource()
-{
-    // Protect from concurrent access
-    std::lock_guard<std::recursive_mutex> lock(mutex);
-
-    // Decrement the resources counter
-    count--;
-
-    // If there's no more resource alive, we can destroy the device
-    if (count == 0)
-        delete globalDevice;
-}
 
 } // namespace sf
