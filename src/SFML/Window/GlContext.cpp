@@ -28,11 +28,10 @@
 #include <SFML/Window/GlContext.hpp>
 #include <SFML/Window/Context.hpp>
 #include <SFML/System/ThreadLocalPtr.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
 #include <SFML/OpenGL.hpp>
 #include <algorithm>
+#include <mutex>
 #include <vector>
 #include <string>
 #include <set>
@@ -134,7 +133,7 @@ namespace
     // This mutex is also used to protect the shared context
     // from being locked on multiple threads and for managing
     // the resource count
-    sf::Mutex mutex;
+    std::recursive_mutex mutex;
 
     // OpenGL resources counter
     unsigned int resourceCount = 0;
@@ -165,7 +164,7 @@ namespace
             }
             else if (!currentContext)
             {
-                sharedContextLock = new sf::Lock(mutex);
+                sharedContextLock = new std::unique_lock<std::recursive_mutex>(mutex);
                 useSharedContext = true;
                 sharedContext->setActive(true);
             }
@@ -188,9 +187,9 @@ namespace
         // Member data
         ////////////////////////////////////////////////////////////
         unsigned int referenceCount;
-        sf::Context* context;
-        sf::Lock*    sharedContextLock;
-        bool         useSharedContext;
+        sf::Context                            *context;
+        std::unique_lock<std::recursive_mutex> *sharedContextLock;
+        bool useSharedContext;
     };
 
     // This per-thread variable tracks if and how a transient
@@ -210,7 +209,7 @@ namespace priv
 void GlContext::initResource()
 {
     // Protect from concurrent access
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     // If this is the very first resource, trigger the global context initialization
     if (resourceCount == 0)
@@ -286,7 +285,7 @@ void GlContext::initResource()
 void GlContext::cleanupResource()
 {
     // Protect from concurrent access
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     // Decrement the resources counter
     resourceCount--;
@@ -308,7 +307,7 @@ void GlContext::cleanupResource()
 void GlContext::acquireTransientContext()
 {
     // Protect from concurrent access
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     // If this is the first TransientContextLock on this thread
     // construct the state object
@@ -324,7 +323,7 @@ void GlContext::acquireTransientContext()
 void GlContext::releaseTransientContext()
 {
     // Protect from concurrent access
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     // Make sure a matching acquireTransientContext() was called
     assert(transientContext);
@@ -348,7 +347,7 @@ GlContext* GlContext::create()
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
     assert(sharedContext != NULL);
 
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     GlContext* context = NULL;
 
@@ -376,7 +375,7 @@ GlContext* GlContext::create(const ContextSettings& settings, const WindowImpl* 
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
     assert(sharedContext != NULL);
 
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     GlContext* context = NULL;
 
@@ -405,7 +404,7 @@ GlContext* GlContext::create(const ContextSettings& settings, unsigned int width
     // Make sure that there's an active context (context creation may need extensions, and thus a valid context)
     assert(sharedContext != NULL);
 
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     GlContext* context = NULL;
 
@@ -440,7 +439,7 @@ GlFunctionPointer GlContext::getFunction(const char* name)
 {
 #if !defined(SFML_OPENGL_ES)
 
-    Lock lock(mutex);
+    std::lock_guard<std::recursive_mutex> lock(mutex);
 
     return ContextType::getFunction(name);
 
@@ -478,7 +477,7 @@ bool GlContext::setActive(bool active)
     {
         if (this != currentContext)
         {
-            Lock lock(mutex);
+            std::lock_guard<std::recursive_mutex> lock(mutex);
 
             // Activate the context
             if (makeCurrent(true))
@@ -502,7 +501,7 @@ bool GlContext::setActive(bool active)
     {
         if (this == currentContext)
         {
-            Lock lock(mutex);
+            std::lock_guard<std::recursive_mutex> lock(mutex);
 
             // Deactivate the context
             if (makeCurrent(false))

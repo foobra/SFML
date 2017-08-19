@@ -29,11 +29,10 @@
 #include <SFML/OpenGL.hpp> // included second to avoid an error in WglExtensions.hpp
 #include <SFML/Window/Win32/WglContext.hpp>
 #include <SFML/System/ThreadLocalPtr.hpp>
-#include <SFML/System/Lock.hpp>
-#include <SFML/System/Mutex.hpp>
 #include <SFML/System/Err.hpp>
 #include <sstream>
 #include <vector>
+#include <mutex>
 
 
 namespace

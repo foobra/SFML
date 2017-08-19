@@ -28,9 +28,8 @@
 #include <SFML/Window/Unix/WindowImplX11.hpp> // important to be included first (conflict with None)
 #include <SFML/Window/Unix/GlxContext.hpp>
 #include <SFML/Window/Unix/Display.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
+#include <mutex>
 #include <vector>
 
 #if !defined(GLX_DEBUGGING) && defined(SFML_DEBUG)

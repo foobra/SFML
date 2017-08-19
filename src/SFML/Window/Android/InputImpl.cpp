@@ -27,9 +27,9 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Window/Android/InputImpl.hpp>
 #include <SFML/System/Android/Activity.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
 #include <jni.h>
+#include <mutex>
 
 
 namespace sf

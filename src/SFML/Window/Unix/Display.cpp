@@ -26,13 +26,12 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/System/Err.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/Window/Unix/Display.hpp>
 #include <X11/keysym.h>
 #include <cassert>
 #include <cstdlib>
 #include <map>
+#include <mutex>
 
 
 namespace

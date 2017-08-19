@@ -31,23 +31,22 @@
 #include <SFML/Graphics/TextureSaver.hpp>
 #include <SFML/Window/Context.hpp>
 #include <SFML/Window/Window.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
+#include <mutex>
 #include <cassert>
 #include <cstring>
 
 
 namespace
 {
-    sf::Mutex idMutex;
-    sf::Mutex maximumSizeMutex;
+    std::recursive_mutex idMutex;
+    std::recursive_mutex maximumSizeMutex;
 
     // Thread-safe unique identifier generator,
     // is used for states cache (see RenderTarget)
     sf::Uint64 getUniqueId()
     {
-        sf::Lock lock(idMutex);
+        std::lock_guard<std::recursive_mutex> lock(idMutex);
 
         static sf::Uint64 id = 1; // start at 1, zero is "no texture"
 
@@ -776,7 +775,7 @@ void Texture::bind(const Texture* texture, CoordinateType coordinateType)
 ////////////////////////////////////////////////////////////
 unsigned int Texture::getMaximumSize()
 {
-    Lock lock(maximumSizeMutex);
+    std::lock_guard<std::recursive_mutex> lock(maximumSizeMutex);
 
     static bool checked = false;
     static GLint size = 0;

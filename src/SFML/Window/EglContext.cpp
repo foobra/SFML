@@ -31,14 +31,14 @@
 #include <SFML/OpenGL.hpp>
 #include <SFML/System/Err.hpp>
 #include <SFML/System/Sleep.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #ifdef SFML_SYSTEM_ANDROID
     #include <SFML/System/Android/Activity.hpp>
 #endif
 #ifdef SFML_SYSTEM_LINUX
     #include <X11/Xlib.h>
 #endif
+
+#include <mutex>
 
 namespace
 {

@@ -26,8 +26,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/System/Win32/ClockImpl.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
+#include <mutex>
 #include <windows.h>
 
 

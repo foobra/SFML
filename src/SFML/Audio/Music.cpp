@@ -27,9 +27,9 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Music.hpp>
 #include <SFML/Audio/ALCheck.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
 #include <fstream>
+#include <mutex>
 
 
 namespace sf
@@ -111,7 +111,7 @@ Time Music::getDuration() const
 ////////////////////////////////////////////////////////////
 bool Music::onGetData(SoundStream::Chunk& data)
 {
-    Lock lock(m_mutex);
+    std::lock_guard<std::recursive_mutex> lock(m_mutex);
 
     // Fill the chunk parameters
     data.samples     = &m_samples[0];
@@ -125,7 +125,7 @@ bool Music::onGetData(SoundStream::Chunk& data)
 ////////////////////////////////////////////////////////////
 void Music::onSeek(Time timeOffset)
 {
-    Lock lock(m_mutex);
+    std::lock_guard<std::recursive_mutex> lock(m_mutex);
 
     m_file.seek(timeOffset);
 }

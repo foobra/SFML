@@ -30,8 +30,6 @@
 #include <SFML/Window/Unix/InputImpl.hpp>
 #include <SFML/System/Utf.hpp>
 #include <SFML/System/Err.hpp>
-#include <SFML/System/Mutex.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Sleep.hpp>
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
@@ -46,6 +44,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <mutex>
 #include <cstring>
 
 #ifdef SFML_OPENGL_ES

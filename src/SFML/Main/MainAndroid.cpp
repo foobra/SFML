@@ -41,10 +41,10 @@
 #include <SFML/System/Android/Activity.hpp>
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Thread.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
 #include <android/window.h>
 #include <android/native_activity.h>
+#include <mutex>
 
 
 extern int main(int argc, char *argv[]);

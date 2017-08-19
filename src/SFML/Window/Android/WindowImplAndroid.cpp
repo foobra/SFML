@@ -29,9 +29,9 @@
 #include <SFML/Window/WindowStyle.hpp> // important to be included first (conflict with None)
 #include <SFML/Window/Android/WindowImplAndroid.hpp>
 #include <SFML/Window/Event.hpp>
-#include <SFML/System/Lock.hpp>
 #include <SFML/System/Err.hpp>
 #include <android/looper.h>
+#include <mutex>
 
 // Define missing constants for older API levels
 #if __ANDROID_API__ < 13

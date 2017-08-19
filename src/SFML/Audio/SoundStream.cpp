@@ -30,7 +30,7 @@
 #include <SFML/Audio/ALCheck.hpp>
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Err.hpp>
-#include <SFML/System/Lock.hpp>
+#include <mutex>
 
 #ifdef _MSC_VER
     #pragma warning(disable: 4355) // 'this' used in base member initializer list
@@ -64,7 +64,7 @@ SoundStream::~SoundStream()
 
     // Request the thread to terminate
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
         m_isStreaming = false;
     }
 
@@ -108,7 +108,7 @@ void SoundStream::play()
     Status threadStartState = Stopped;
 
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
 
         isStreaming = m_isStreaming;
         threadStartState = m_threadStartState;
@@ -118,7 +118,7 @@ void SoundStream::play()
     if (isStreaming && (threadStartState == Paused))
     {
         // If the sound is paused, resume it
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
         m_threadStartState = Playing;
         alCheck(alSourcePlay(m_source));
         return;
@@ -141,7 +141,7 @@ void SoundStream::pause()
 {
     // Handle pause() being called before the thread has started
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
 
         if (!m_isStreaming)
             return;
@@ -158,7 +158,7 @@ void SoundStream::stop()
 {
     // Request the thread to terminate
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
         m_isStreaming = false;
     }
 
@@ -195,7 +195,7 @@ SoundStream::Status SoundStream::getStatus() const
     // To compensate for the lag between play() and alSourceplay()
     if (status == Stopped)
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
 
         if (m_isStreaming)
             status = m_threadStartState;
@@ -266,7 +266,7 @@ void SoundStream::streamData()
     bool requestStop = false;
 
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
 
         // Check if the thread was launched Stopped
         if (m_threadStartState == Stopped)
@@ -288,7 +288,7 @@ void SoundStream::streamData()
     alCheck(alSourcePlay(m_source));
 
     {
-        Lock lock(m_threadMutex);
+        std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
 
         // Check if the thread was launched Paused
         if (m_threadStartState == Paused)
@@ -298,7 +298,7 @@ void SoundStream::streamData()
     for (;;)
     {
         {
-            Lock lock(m_threadMutex);
+            std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
             if (!m_isStreaming)
                 break;
         }
@@ -314,7 +314,7 @@ void SoundStream::streamData()
             else
             {
                 // End streaming
-                Lock lock(m_threadMutex);
+                std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
                 m_isStreaming = false;
             }
         }
@@ -358,7 +358,7 @@ void SoundStream::streamData()
                           << "and initialize() has been called correctly" << std::endl;
 
                     // Abort streaming (exit main loop)
-                    Lock lock(m_threadMutex);
+                    std::lock_guard<std::recursive_mutex> lock(m_threadMutex);
                     m_isStreaming = false;
                     requestStop = true;
                     break;
