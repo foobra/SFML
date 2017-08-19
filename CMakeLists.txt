@@ -1,5 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 
+
+set(CMAKE_CXX_COMPILER /usr/bin/clang++)
+set(CMAKE_C_COMPILER /usr/bin/clang)
+set(CMAKE_CXX_FLAGS "-stdlib=libc++")
+set(CMAKE_C_FLAGS "-stdlib=libc++")
+set(CMAKE_CXX_STANDARD 17)
+
+
 # define a macro that helps defining an option
 macro(sfml_set_option var default type docstring)
     if(NOT DEFINED ${var})
