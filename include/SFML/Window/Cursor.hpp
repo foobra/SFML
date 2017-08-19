@@ -70,7 +70,7 @@ public:
     ///  sf::Cursor::NotAllowed             |  yes  |    yes   |   yes
     ///
     ////////////////////////////////////////////////////////////
-    enum Type
+    enum class Type
     {
         Arrow,                  ///< Arrow cursor (default)
         ArrowWait,              ///< Busy arrow cursor

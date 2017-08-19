@@ -36,7 +36,7 @@ namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 RenderTextureImplDefault::RenderTextureImplDefault() :
-m_context(0),
+m_context(nullptr),
 m_width  (0),
 m_height (0)
 {

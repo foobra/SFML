@@ -551,7 +551,7 @@ void Shader::setUniform(const std::string& name, const Texture& texture)
         if (location != -1)
         {
             // Store the location -> texture mapping
-            TextureTable::iterator it = m_textures.find(location);
+            auto it = m_textures.find(location);
             if (it == m_textures.end())
             {
                 // New entry, make sure there are enough texture units
@@ -873,7 +873,7 @@ bool Shader::compile(const char* vertexShaderCode, const char* geometryShaderCod
         if (success == GL_FALSE)
         {
             char log[1024];
-            glCheck(GLEXT_glGetInfoLog(vertexShader, sizeof(log), 0, log));
+            glCheck(GLEXT_glGetInfoLog(vertexShader, sizeof(log), nullptr, log));
             err() << "Failed to compile vertex shader:" << std::endl
                   << log << std::endl;
             glCheck(GLEXT_glDeleteObject(vertexShader));
@@ -900,7 +900,7 @@ bool Shader::compile(const char* vertexShaderCode, const char* geometryShaderCod
         if (success == GL_FALSE)
         {
             char log[1024];
-            glCheck(GLEXT_glGetInfoLog(geometryShader, sizeof(log), 0, log));
+            glCheck(GLEXT_glGetInfoLog(geometryShader, sizeof(log), nullptr, log));
             err() << "Failed to compile geometry shader:" << std::endl
                   << log << std::endl;
             glCheck(GLEXT_glDeleteObject(geometryShader));
@@ -928,7 +928,7 @@ bool Shader::compile(const char* vertexShaderCode, const char* geometryShaderCod
         if (success == GL_FALSE)
         {
             char log[1024];
-            glCheck(GLEXT_glGetInfoLog(fragmentShader, sizeof(log), 0, log));
+            glCheck(GLEXT_glGetInfoLog(fragmentShader, sizeof(log), nullptr, log));
             err() << "Failed to compile fragment shader:" << std::endl
                   << log << std::endl;
             glCheck(GLEXT_glDeleteObject(fragmentShader));
@@ -950,7 +950,7 @@ bool Shader::compile(const char* vertexShaderCode, const char* geometryShaderCod
     if (success == GL_FALSE)
     {
         char log[1024];
-        glCheck(GLEXT_glGetInfoLog(shaderProgram, sizeof(log), 0, log));
+        glCheck(GLEXT_glGetInfoLog(shaderProgram, sizeof(log), nullptr, log));
         err() << "Failed to link shader:" << std::endl
               << log << std::endl;
         glCheck(GLEXT_glDeleteObject(shaderProgram));

@@ -110,7 +110,7 @@ namespace
 
         if (user32Dll)
         {
-            typedef BOOL (WINAPI* SetProcessDPIAwareFuncType)();
+            using SetProcessDPIAwareFuncType = BOOL (WINAPI*)();
             SetProcessDPIAwareFuncType SetProcessDPIAwareFunc = reinterpret_cast<SetProcessDPIAwareFuncType>(GetProcAddress(user32Dll, "SetProcessDPIAware"));
 
             if (SetProcessDPIAwareFunc)
@@ -470,8 +470,8 @@ void WindowImplWin32::registerWindowClass()
     windowClass.cbWndExtra    = 0;
     windowClass.hInstance     = GetModuleHandleW(nullptr);
     windowClass.hIcon         = nullptr;
-    windowClass.hCursor       = 0;
-    windowClass.hbrBackground = 0;
+    windowClass.hCursor       = nullptr;
+    windowClass.hbrBackground = nullptr;
     windowClass.lpszMenuName  = nullptr;
     windowClass.lpszClassName = className;
     RegisterClassW(&windowClass);

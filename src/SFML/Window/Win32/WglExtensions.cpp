@@ -121,7 +121,7 @@ static int Load_ARB_create_context()
 
 static const char* (CODEGEN_FUNCPTR *sf_ptrc_wglGetExtensionsStringARB)(HDC) = nullptr;
 
-typedef int (*PFN_LOADFUNCPOINTERS)();
+using PFN_LOADFUNCPOINTERS = int(*)();
 typedef struct sfwgl_StrToExtMap_s
 {
     const char* extensionName;

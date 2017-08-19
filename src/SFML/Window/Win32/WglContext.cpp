@@ -205,7 +205,7 @@ GlFunctionPointer WglContext::getFunction(const char* name)
     if (module)
         return reinterpret_cast<GlFunctionPointer>(GetProcAddress(module, reinterpret_cast<LPCSTR>(name)));
 
-    return 0;
+    return nullptr;
 }
 
 

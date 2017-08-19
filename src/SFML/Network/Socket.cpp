@@ -46,7 +46,7 @@ m_isBlocking(true)
 Socket::~Socket()
 {
     // Close the socket before it gets destructed
-    close();
+    Socket::close();
 }
 
 

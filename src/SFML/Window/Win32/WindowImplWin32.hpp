@@ -67,7 +67,7 @@ namespace sf::priv
         /// \brief Destructor
         ///
         ////////////////////////////////////////////////////////////
-        ~WindowImplWin32();
+        ~WindowImplWin32() override;
 
         ////////////////////////////////////////////////////////////
         /// \brief Get the OS-specific handle of the window

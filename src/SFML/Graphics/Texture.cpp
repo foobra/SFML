@@ -112,7 +112,7 @@ Texture::~Texture()
     {
         TransientContextLock lock;
 
-        GLuint texture = static_cast<GLuint>(m_texture);
+        auto texture = static_cast<GLuint>(m_texture);
         glCheck(glDeleteTextures(1, &texture));
     }
 }
@@ -784,7 +784,7 @@ unsigned int Texture::getMaximumSize()
     {
         checked = true;
 
-        TransientContextLock lock;
+        TransientContextLock contextLock;
 
         glCheck(glGetIntegerv(GL_MAX_TEXTURE_SIZE, &size));
     }
@@ -805,7 +805,7 @@ Texture& Texture::operator =(const Texture& right)
 
 
 ////////////////////////////////////////////////////////////
-void Texture::swap(Texture& right)
+void Texture::swap(Texture& right) noexcept
 {
     std::swap(m_size,          right.m_size);
     std::swap(m_actualSize,    right.m_actualSize);

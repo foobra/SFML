@@ -56,7 +56,7 @@ public:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    ~RenderTarget() = default;
+    virtual ~RenderTarget() = default;
 
     ////////////////////////////////////////////////////////////
     /// \brief Clear the entire target with a single color

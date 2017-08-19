@@ -70,19 +70,16 @@ namespace
         // Give the joystick a default name
         sf::String joystickDescription = "Unknown Joystick";
 
-        LONG result;
-        HKEY rootKey;
         HKEY currentKey;
-        std::basic_string<TCHAR> subkey;
 
-        subkey  = REGSTR_PATH_JOYCONFIG;
+        std::basic_string<TCHAR> subkey = REGSTR_PATH_JOYCONFIG;
         subkey += TEXT('\\');
         subkey += caps.szRegKey;
         subkey += TEXT('\\');
         subkey += REGSTR_KEY_JOYCURR;
 
-        rootKey = HKEY_CURRENT_USER;
-        result  = RegOpenKeyEx(rootKey, subkey.c_str(), 0, KEY_READ, &currentKey);
+        auto rootKey = HKEY_CURRENT_USER;
+        auto result  = RegOpenKeyEx(rootKey, subkey.c_str(), 0, KEY_READ, &currentKey);
 
         if (result != ERROR_SUCCESS)
         {

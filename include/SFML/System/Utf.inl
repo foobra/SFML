@@ -456,7 +456,7 @@ Out Utf<16>::toLatin1(In begin, In end, Out output, char replacement)
     while (begin < end)
     {
         *output++ = *begin < 256 ? static_cast<char>(*begin) : replacement;
-        begin++;
+        ++begin;
     }
 
     return output;
@@ -598,7 +598,7 @@ Out Utf<32>::toLatin1(In begin, In end, Out output, char replacement)
     while (begin < end)
     {
         *output++ = *begin < 256 ? static_cast<char>(*begin) : replacement;
-        begin++;
+        ++begin;
     }
 
     return output;

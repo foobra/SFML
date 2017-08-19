@@ -273,7 +273,7 @@ public:
     /// \see setSize
     ///
     ////////////////////////////////////////////////////////////
-    Vector2u getSize() const;
+    virtual Vector2u getSize() const;
 
     ////////////////////////////////////////////////////////////
     /// \brief Change the size of the rendering region of the window

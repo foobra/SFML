@@ -126,7 +126,7 @@ public:
     /// \return Current status
     ///
     ////////////////////////////////////////////////////////////
-    Status getStatus() const;
+    Status getStatus() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Change the current playing position of the stream

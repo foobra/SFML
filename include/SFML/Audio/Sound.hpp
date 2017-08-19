@@ -189,7 +189,7 @@ public:
     /// \return Current status of the sound
     ///
     ////////////////////////////////////////////////////////////
-    Status getStatus() const;
+    Status getStatus() const override;
 
     ////////////////////////////////////////////////////////////
     /// \brief Overload of assignment operator

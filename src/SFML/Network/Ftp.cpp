@@ -618,7 +618,6 @@ void Ftp::DataChannel::send(std::istream& stream)
 {
     // Send data
     char buffer[1024];
-    std::size_t count;
 
     for (;;)
     {
@@ -631,7 +630,7 @@ void Ftp::DataChannel::send(std::istream& stream)
             break;
         }
 
-        count = stream.gcount();
+        std::size_t count = stream.gcount();
 
         if (count > 0)
         {

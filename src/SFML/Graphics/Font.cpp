@@ -133,7 +133,7 @@ bool Font::loadFromFile(const std::string& filename)
     FT_Library library;
     if (FT_Init_FreeType(&library) != 0)
     {
-        err() << "Failed to load font \"" << filename << "\" (failed to initialize FreeType)" << std::endl;
+        err() << R"(Failed to load font ")" << filename << R"(" (failed to initialize FreeType))" << std::endl;
         return false;
     }
     m_library = library;
@@ -142,7 +142,7 @@ bool Font::loadFromFile(const std::string& filename)
     FT_Face face;
     if (FT_New_Face(static_cast<FT_Library>(m_library), filename.c_str(), 0, &face) != 0)
     {
-        err() << "Failed to load font \"" << filename << "\" (failed to create the font face)" << std::endl;
+        err() << R"(Failed to load font ")" << filename << R"(" (failed to create the font face))" << std::endl;
         return false;
     }
 
@@ -275,7 +275,7 @@ bool Font::loadFromStream(InputStream& stream)
     FT_Open_Args args;
     args.flags  = FT_OPEN_STREAM;
     args.stream = rec;
-    args.driver = 0;
+    args.driver = nullptr;
 
     // Load the new font face from the specified stream
     FT_Face face;
@@ -549,7 +549,7 @@ Glyph Font::loadGlyph(Uint32 codePoint, unsigned int characterSize, bool bold, f
     {
         if (bold)
         {
-            FT_OutlineGlyph outlineGlyph = (FT_OutlineGlyph)glyphDesc;
+            FT_OutlineGlyph outlineGlyph = reinterpret_cast<FT_OutlineGlyph>(glyphDesc);
             FT_Outline_Embolden(&outlineGlyph->outline, weight);
         }
 
@@ -563,7 +563,7 @@ Glyph Font::loadGlyph(Uint32 codePoint, unsigned int characterSize, bool bold, f
     }
 
     // Convert the glyph to a bitmap (i.e. rasterize it)
-    FT_Glyph_To_Bitmap(&glyphDesc, FT_RENDER_MODE_NORMAL, 0, 1);
+    FT_Glyph_To_Bitmap(&glyphDesc, FT_RENDER_MODE_NORMAL, nullptr, 1);
     FT_Bitmap& bitmap = reinterpret_cast<FT_BitmapGlyph>(glyphDesc)->bitmap;
 
     // Apply bold if necessary -- fallback technique using bitmap (lower quality)

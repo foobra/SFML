@@ -164,7 +164,7 @@ protected:
     /// This function can only be accessed by derived classes.
     ///
     ////////////////////////////////////////////////////////////
-    void close();
+    virtual void close();
 
 private:
 

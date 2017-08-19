@@ -154,8 +154,8 @@ namespace
         ////////////////////////////////////////////////////////////
         TransientContext() :
         referenceCount   (0),
-        context          (0),
-        sharedContextLock(0),
+        context          (nullptr),
+        sharedContextLock(nullptr),
         useSharedContext (false)
         {
             if (resourceCount == 0)
