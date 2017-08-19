@@ -55,7 +55,7 @@ void ClipboardImpl::setString(const String& text)
 
     NSPasteboard* pboard = [NSPasteboard generalPasteboard];
     [pboard declareTypes:@[NSPasteboardTypeString] owner:nil];
-    BOOL ok = [pboard setString:data forType:NSPasteboardTypeString];
+    [pboard setString:data forType:NSPasteboardTypeString];
 
     [data release];
 }
