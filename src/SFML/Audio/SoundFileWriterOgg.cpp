@@ -33,9 +33,7 @@
 #include <cassert>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 bool SoundFileWriterOgg::check(const std::string& filename)
@@ -211,6 +209,4 @@ void SoundFileWriterOgg::close()
     vorbis_info_clear(&m_vorbis);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

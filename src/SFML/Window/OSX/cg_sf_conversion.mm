@@ -31,9 +31,7 @@
 
 #import <SFML/Window/OSX/Scaling.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -92,6 +90,5 @@ VideoMode convertCGModeToSFMode(CGDisplayModeRef cgmode)
     return mode;
 }
 
-} // namespace priv
-} // namespace sf
+} // namespace sf::priv
 

@@ -32,9 +32,7 @@
 #include <SFML/System/Err.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 RenderTextureImplDefault::RenderTextureImplDefault() :
@@ -86,6 +84,4 @@ void RenderTextureImplDefault::updateTexture(unsigned int textureId)
     glCheck(glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 0, 0, m_width, m_height));
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

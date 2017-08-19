@@ -29,9 +29,7 @@
 
 #import <AppKit/AppKit.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -62,7 +60,5 @@ void ClipboardImpl::setString(const String& text)
     [data release];
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 

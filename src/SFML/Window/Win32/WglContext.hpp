@@ -32,9 +32,7 @@
 #include <SFML/Window/Win32/WglExtensions.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Windows (WGL) implementation of OpenGL contexts
@@ -186,8 +184,6 @@ private:
     bool        m_ownsWindow;    ///< Do we own the target window?
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif // SFML_WGLCONTEXT_HPP

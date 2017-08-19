@@ -33,9 +33,7 @@
 #include <SFML/System/NonCopyable.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Global joystick manager
@@ -121,9 +119,7 @@ private:
     Item m_joysticks[Joystick::Count]; ///< Joysticks information and state
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_JOYSTICKMANAGER_HPP

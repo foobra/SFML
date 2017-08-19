@@ -29,9 +29,7 @@
 #include <SFML/System/Err.hpp>
 #include <cstring>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -177,7 +175,5 @@ void CursorImpl::release()
     }
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 

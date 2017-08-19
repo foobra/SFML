@@ -156,9 +156,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void JoystickImpl::initialize()
@@ -341,6 +339,4 @@ JoystickState JoystickImpl::JoystickImpl::update()
     return m_state;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

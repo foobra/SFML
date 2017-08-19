@@ -33,9 +33,7 @@
 #include <IOKit/hid/IOHIDDevice.h>
 #include <IOKit/hid/IOHIDManager.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief sf::priv::InputImpl helper
@@ -122,8 +120,6 @@ private:
 };
 
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif

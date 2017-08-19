@@ -32,9 +32,7 @@
 #include <pthread.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Unix implementation of thread-local storage
@@ -79,9 +77,7 @@ private:
     pthread_key_t m_key; ///< Index of our thread-local storage slot
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_THREADLOCALIMPL_HPP

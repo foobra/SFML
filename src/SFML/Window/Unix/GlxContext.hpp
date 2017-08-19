@@ -33,9 +33,7 @@
 #include <X11/Xlib.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Linux (GLX) implementation of OpenGL contexts
@@ -185,8 +183,6 @@ private:
     bool              m_ownsWindow; ///< Do we own the window associated to the context?
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif // SFML_GLXCONTEXT_HPP

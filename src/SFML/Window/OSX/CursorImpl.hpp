@@ -47,10 +47,7 @@ typedef void* NSCursorRef;
 
 #endif
 
-namespace sf
-{
-
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Mac OS X implementation of Cursor
@@ -102,8 +99,6 @@ private:
     NSCursorRef m_cursor; ///< System cursor handle
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif // SFML_CURSORIMPLOSX_HPP

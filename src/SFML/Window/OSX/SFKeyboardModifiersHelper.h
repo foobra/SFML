@@ -28,10 +28,8 @@
 ////////////////////////////////////////////////////////////
 #import <AppKit/AppKit.h>
 
-namespace sf {
-    namespace priv {
-        class WindowImplCocoa;
-    }
+namespace sf::priv {
+    class WindowImplCocoa;
 }
 
 ////////////////////////////////////////////////////////////

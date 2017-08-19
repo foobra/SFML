@@ -42,9 +42,7 @@
 ////////////////////////////////////////////////////////////
 // Private data
 ////////////////////////////////////////////////////////////
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 WindowImplAndroid* WindowImplAndroid::singleInstance = nullptr;
 
@@ -722,5 +720,4 @@ int WindowImplAndroid::getUnicode(AInputEvent* event)
     return unicode;
 }
 
-} // namespace priv
-} // namespace sf
+} // namespace sf::priv

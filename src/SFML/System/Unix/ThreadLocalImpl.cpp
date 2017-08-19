@@ -28,9 +28,7 @@
 #include <SFML/System/Unix/ThreadLocalImpl.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 ThreadLocalImpl::ThreadLocalImpl() :
@@ -60,6 +58,4 @@ void* ThreadLocalImpl::getValue() const
     return pthread_getspecific(m_key);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

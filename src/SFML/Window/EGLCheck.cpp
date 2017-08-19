@@ -30,9 +30,7 @@
 #include <SFML/System/Err.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void eglCheckError(const char* file, unsigned int line)
@@ -157,5 +155,4 @@ void eglCheckError(const char* file, unsigned int line)
     }
 }
 
-} // namespace priv
-} // namespace sf
+} // namespace sf::priv

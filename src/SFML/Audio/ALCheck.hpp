@@ -38,9 +38,7 @@
 #endif
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// Let's define a macro to quickly check every OpenAL API call
@@ -69,9 +67,7 @@ namespace priv
 ////////////////////////////////////////////////////////////
 void alCheckError(const char* file, unsigned int line, const char* expression);
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_ALCHECK_HPP

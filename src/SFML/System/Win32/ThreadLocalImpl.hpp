@@ -32,9 +32,7 @@
 #include <windows.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Windows implementation of thread-local storage
@@ -79,9 +77,7 @@ private:
     DWORD m_index; ///< Index of our thread-local storage slot
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_THREADLOCALIMPL_HPP

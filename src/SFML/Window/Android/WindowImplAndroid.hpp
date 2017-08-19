@@ -35,9 +35,7 @@
 #include <android/input.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Android implementation of WindowImpl
@@ -241,9 +239,7 @@ private:
     bool m_hasFocus;
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_WINDOWIMPLANDROID_HPP

@@ -166,9 +166,7 @@ void* hostSelection(void*)
 }
 }
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -256,6 +254,4 @@ void ClipboardImpl::setString(const String& text)
     pthread_mutex_unlock(&mutex);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

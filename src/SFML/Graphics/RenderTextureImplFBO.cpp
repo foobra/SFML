@@ -31,9 +31,7 @@
 #include <SFML/System/Err.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 RenderTextureImplFBO::RenderTextureImplFBO() :
@@ -144,6 +142,4 @@ void RenderTextureImplFBO::updateTexture(unsigned int)
     glCheck(glFlush());
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

@@ -31,9 +31,7 @@
 #include <cassert>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 ThreadImpl::ThreadImpl(Thread* owner) :
@@ -89,6 +87,4 @@ void* ThreadImpl::entryPoint(void* userData)
     return nullptr;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

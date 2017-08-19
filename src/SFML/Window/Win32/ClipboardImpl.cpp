@@ -31,9 +31,7 @@
 #include <windows.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 String ClipboardImpl::getString()
@@ -98,6 +96,4 @@ void ClipboardImpl::setString(const String& text)
     CloseClipboard();
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

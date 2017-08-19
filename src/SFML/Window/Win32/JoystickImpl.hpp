@@ -43,9 +43,7 @@
 #include <mmsystem.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Windows implementation of joysticks
@@ -141,9 +139,7 @@ private:
     Joystick::Identification m_identification; ///< Joystick identification
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_JOYSTICKIMPLWIN32_HPP

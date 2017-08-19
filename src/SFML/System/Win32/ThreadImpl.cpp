@@ -32,9 +32,7 @@
 #include <process.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 ThreadImpl::ThreadImpl(Thread* owner)
@@ -88,6 +86,4 @@ unsigned int __stdcall ThreadImpl::entryPoint(void* userData)
     return 0;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

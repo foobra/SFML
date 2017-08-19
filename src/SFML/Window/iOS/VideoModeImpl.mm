@@ -29,9 +29,7 @@
 #include <SFML/Window/iOS/SFAppDelegate.hpp>
 #include <UIKit/UIKit.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 std::vector<VideoMode> VideoModeImpl::getFullscreenModes()
@@ -54,6 +52,4 @@ VideoMode VideoModeImpl::getDesktopMode()
     return VideoMode(bounds.size.width * backingScale, bounds.size.height * backingScale);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

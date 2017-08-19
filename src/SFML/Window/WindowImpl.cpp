@@ -61,9 +61,7 @@
 #endif
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 WindowImpl* WindowImpl::create(VideoMode mode, const String& title, Uint32 style, const ContextSettings& settings)
@@ -252,6 +250,4 @@ void WindowImpl::processSensorEvents()
     }
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

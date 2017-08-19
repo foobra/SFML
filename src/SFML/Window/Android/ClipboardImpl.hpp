@@ -31,9 +31,7 @@
 #include <SFML/System/String.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Give access to the system clipboard
@@ -68,9 +66,7 @@ public:
     static void setString(const String& text);
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_CLIPBOARDIMPLANDROID_HPP

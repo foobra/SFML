@@ -33,10 +33,8 @@
 ////////////////////////////////////////////////////////////
 /// Predefine some classes
 ////////////////////////////////////////////////////////////
-namespace sf {
-    namespace priv {
-        class WindowImplCocoa;
-    }
+namespace sf::priv {
+    class WindowImplCocoa;
 }
 
 @class SFOpenGLView;

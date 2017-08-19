@@ -33,9 +33,7 @@
 #include <SFML/Window/GlResource.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Specialization of RenderTextureImpl using the
@@ -107,9 +105,7 @@ private:
     unsigned int m_depthBuffer; ///< Optional depth buffer attached to the frame buffer
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_RENDERTEXTUREIMPLFBO_HPP

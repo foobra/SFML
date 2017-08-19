@@ -29,9 +29,7 @@
 #include <windows.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void sleepImpl(Time time)
@@ -50,6 +48,4 @@ void sleepImpl(Time time)
     timeEndPeriod(tc.wPeriodMin);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

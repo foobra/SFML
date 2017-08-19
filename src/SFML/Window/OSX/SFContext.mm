@@ -34,9 +34,7 @@
 
 #import <SFML/Window/OSX/AutoreleasePoolWrapper.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 
@@ -301,7 +299,5 @@ void SFContext::createContext(SFContext* shared,
 
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 

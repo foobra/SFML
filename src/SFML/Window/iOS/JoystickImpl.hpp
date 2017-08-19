@@ -31,9 +31,7 @@
 #include <SFML/Window/JoystickImpl.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief iOS implementation of joysticks
@@ -106,9 +104,7 @@ public:
     JoystickState update();
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_JOYSTICKIMPLIOS_HPP

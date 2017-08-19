@@ -34,10 +34,7 @@
 #include <SFML/Window/WindowStyle.hpp> // Prevent conflict with macro None from Xlib
 #include <X11/Xlib.h>
 
-namespace sf
-{
-
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Unix implementation of Cursor
@@ -96,8 +93,6 @@ private:
     ::Cursor   m_cursor;
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif // SFML_CUSROSIMPLUNIX_HPP

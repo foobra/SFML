@@ -37,9 +37,7 @@
 #include <IOKit/hid/IOHIDManager.h>
 #include <vector>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 typedef std::vector<IOHIDElementRef> IOHIDElements;
@@ -229,8 +227,6 @@ private:
     ////////////////////////////////////////////////////////////
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 #endif

@@ -70,9 +70,7 @@ namespace
     }
 }
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 bool SoundFileWriterWav::check(const std::string& filename)
@@ -202,6 +200,4 @@ void SoundFileWriterWav::close()
     }
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

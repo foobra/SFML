@@ -46,9 +46,7 @@ namespace
     }
 }
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 Time ClockImpl::getCurrentTime()
@@ -82,6 +80,4 @@ Time ClockImpl::getCurrentTime()
     return sf::microseconds(1000000 * time.QuadPart / frequency.QuadPart);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

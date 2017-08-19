@@ -69,9 +69,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 ImageLoader& ImageLoader::getInstance()
@@ -318,6 +316,4 @@ bool ImageLoader::writeJpg(const std::string& filename, const std::vector<Uint8>
     return true;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

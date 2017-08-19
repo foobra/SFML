@@ -35,7 +35,7 @@
 
 namespace sf
 {
-class Thread;
+    class Thread;
 
 namespace priv
 {

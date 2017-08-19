@@ -31,9 +31,7 @@
 #include <mutex>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -112,5 +110,4 @@ Int64 ResourceStream::getSize()
 }
 
 
-} // namespace priv
-} // namespace sf
+} // namespace sf::priv

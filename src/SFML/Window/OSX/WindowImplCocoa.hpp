@@ -53,9 +53,7 @@ typedef void* NSOpenGLContextRef;
 
 #endif
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Mac OS X (Cocoa) implementation of WindowImpl
@@ -369,9 +367,7 @@ private:
     bool                  m_showCursor; ///< Is the cursor displayed or hidden?
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_WINDOWIMPLCOCOA_HPP

@@ -32,9 +32,7 @@
 #include <cassert>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 bool SoundFileWriterFlac::check(const std::string& filename)
@@ -128,6 +126,4 @@ void SoundFileWriterFlac::close()
     }
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

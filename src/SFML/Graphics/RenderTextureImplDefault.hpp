@@ -33,9 +33,7 @@
 #include <SFML/Window/Context.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Default specialization of RenderTextureImpl,
@@ -99,9 +97,7 @@ private:
     unsigned int m_height;  ///< Height of the P-Buffer
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_RENDERTEXTUREIMPLDEFAULT_HPP

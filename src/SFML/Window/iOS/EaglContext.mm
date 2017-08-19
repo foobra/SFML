@@ -36,9 +36,7 @@
 #include <QuartzCore/CAEAGLLayer.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 EaglContext::EaglContext(EaglContext* shared) :
@@ -247,7 +245,5 @@ void EaglContext::createContext(EaglContext* shared,
     makeCurrent(false);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 

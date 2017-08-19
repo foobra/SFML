@@ -35,9 +35,7 @@
 #include <SFML/OpenGL.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 class EglContext final : public GlContext
 {
@@ -182,9 +180,7 @@ private:
 
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_EGLCONTEXT_HPP

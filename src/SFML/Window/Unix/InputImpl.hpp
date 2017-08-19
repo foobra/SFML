@@ -32,9 +32,7 @@
 #include <SFML/Window/Mouse.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Linux (X11) implementation of inputs (keyboard + mouse)
@@ -160,9 +158,7 @@ public:
     static Vector2i getTouchPosition(unsigned int finger, const Window& relativeTo);
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_INPUTIMPLX11_HPP

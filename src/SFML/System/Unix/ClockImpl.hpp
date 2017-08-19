@@ -32,9 +32,7 @@
 #include <SFML/System/Time.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Unix implementation of sf::Clock
@@ -53,9 +51,7 @@ public:
     static Time getCurrentTime();
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_CLOCKIMPLUNIX_HPP

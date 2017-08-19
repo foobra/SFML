@@ -40,9 +40,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 HIDJoystickManager& HIDJoystickManager::getInstance()
@@ -146,7 +144,5 @@ void HIDJoystickManager::pluggedOut(void* context, IOReturn, void*, IOHIDDeviceR
 }
 
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 

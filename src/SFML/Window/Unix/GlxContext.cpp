@@ -74,9 +74,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void ensureExtensionsInit(::Display* display, int screen)
@@ -771,6 +769,4 @@ void GlxContext::createContext(GlxContext* shared)
     XFree(visualInfo);
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

@@ -81,9 +81,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 JoystickImpl::Location JoystickImpl::m_locationIDs[sf::Joystick::Count] = { 0 };
@@ -430,6 +428,4 @@ JoystickState JoystickImpl::update()
     return state;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

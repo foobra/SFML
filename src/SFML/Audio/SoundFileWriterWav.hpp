@@ -33,9 +33,7 @@
 #include <string>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Implementation of sound file writer that handles wav files
@@ -117,9 +115,7 @@ private:
     unsigned int  m_channelCount; ///< Number of channels of the sound
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_SOUNDFILEWRITERWAV_HPP

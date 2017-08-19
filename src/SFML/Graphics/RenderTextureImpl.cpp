@@ -28,11 +28,7 @@
 #include <SFML/Graphics/RenderTextureImpl.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

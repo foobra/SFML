@@ -34,9 +34,7 @@
 #include <SFML/System/NonCopyable.hpp>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 class WindowImpl;
 
@@ -261,9 +259,7 @@ private:
     void checkSettings(const ContextSettings& requestedSettings);
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_GLCONTEXT_HPP

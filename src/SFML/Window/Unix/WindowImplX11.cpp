@@ -372,9 +372,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 WindowImplX11::WindowImplX11(WindowHandle handle) :
@@ -1809,6 +1807,4 @@ bool WindowImplX11::processEvent(XEvent& windowEvent)
     return true;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

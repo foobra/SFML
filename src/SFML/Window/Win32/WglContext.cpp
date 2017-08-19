@@ -43,9 +43,7 @@ namespace
 }
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void ensureExtensionsInit(HDC deviceContext)
@@ -728,6 +726,4 @@ void WglContext::createContext(WglContext* shared)
     }
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

@@ -33,9 +33,7 @@
 #include <X11/keysym.h>
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 bool InputImpl::isKeyPressed(Keyboard::Key key)
@@ -324,6 +322,4 @@ Vector2i InputImpl::getTouchPosition(unsigned int /*finger*/, const Window& /*re
     return Vector2i();
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

@@ -260,9 +260,7 @@
 
 #endif
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -271,9 +269,7 @@ namespace priv
 ////////////////////////////////////////////////////////////
 void ensureExtensionsInit();
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_GLEXTENSIONS_HPP

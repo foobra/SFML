@@ -38,9 +38,7 @@
 #endif
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 void ensureExtensionsInit()
@@ -88,6 +86,4 @@ void ensureExtensionsInit()
 #endif
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

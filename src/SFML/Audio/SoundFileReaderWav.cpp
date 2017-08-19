@@ -90,9 +90,7 @@ namespace
     const sf::Uint64 mainChunkSize = 12;
 }
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 bool SoundFileReaderWav::check(InputStream& stream)
@@ -303,6 +301,4 @@ bool SoundFileReaderWav::parseHeader(Info& info)
     return true;
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

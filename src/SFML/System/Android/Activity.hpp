@@ -50,9 +50,7 @@ private:
     std::string m_message;
 };
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 struct ActivityStates
 {
@@ -94,8 +92,7 @@ struct ActivityStates
 
 SFML_SYSTEM_API ActivityStates* getActivity(ActivityStates* initializedStates=nullptr, bool reset=false);
 
-} // namespace priv
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_ACTIVITY_HPP

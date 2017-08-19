@@ -33,9 +33,7 @@
 #include <SFML/System/Err.hpp>
 #include <UIKit/UIKit.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 WindowImplUIKit::WindowImplUIKit(WindowHandle handle)
@@ -246,6 +244,4 @@ void WindowImplUIKit::setVirtualKeyboardVisible(bool visible)
         [m_view resignFirstResponder];
 }
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv

@@ -26,9 +26,7 @@
 #define SFML_SENSORIMPLWIN32_HPP
 
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 ////////////////////////////////////////////////////////////
 /// \brief Windows implementation of sensors
@@ -93,9 +91,7 @@ public:
     void setEnabled(bool enabled);
 };
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
 
 #endif // SFML_SENSORIMPLWIN32_HPP

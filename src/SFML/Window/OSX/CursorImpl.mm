@@ -32,9 +32,7 @@
 #import <SFML/Window/OSX/NSImage+raw.h>
 #import <AppKit/AppKit.h>
 
-namespace sf
-{
-namespace priv
+namespace sf::priv
 {
 
 ////////////////////////////////////////////////////////////
@@ -91,7 +89,5 @@ bool CursorImpl::loadFromSystem(Cursor::Type type)
 }
 
 
-} // namespace priv
-
-} // namespace sf
+} // namespace sf::priv
 
