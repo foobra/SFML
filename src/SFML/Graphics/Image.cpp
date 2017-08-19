@@ -68,7 +68,7 @@ void Image::create(unsigned int width, unsigned int height, const Color& color)
     {
         // Create a new pixel buffer first for exception safety's sake
         std::vector<Uint8> newPixels(width * height * 4);
-    
+
         // Fill it with the specified color
         Uint8* ptr = &newPixels[0];
         Uint8* end = ptr + newPixels.size();
@@ -79,10 +79,10 @@ void Image::create(unsigned int width, unsigned int height, const Color& color)
             *ptr++ = color.b;
             *ptr++ = color.a;
         }
-    
+
         // Commit the new pixel buffer
         m_pixels.swap(newPixels);
-        
+
         // Assign the new size
         m_size.x = width;
         m_size.y = height;
@@ -91,7 +91,7 @@ void Image::create(unsigned int width, unsigned int height, const Color& color)
     {
         // Dump the pixel buffer
         std::vector<Uint8>().swap(m_pixels);
-        
+
         // Assign the new size
         m_size.x = 0;
         m_size.y = 0;
@@ -106,10 +106,10 @@ void Image::create(unsigned int width, unsigned int height, const Uint8* pixels)
     {
         // Create a new pixel buffer first for exception safety's sake
         std::vector<Uint8> newPixels(pixels, pixels + width * height * 4);
-        
+
         // Commit the new pixel buffer
         m_pixels.swap(newPixels);
-        
+
         // Assign the new size
         m_size.x = width;
         m_size.y = height;
@@ -118,7 +118,7 @@ void Image::create(unsigned int width, unsigned int height, const Uint8* pixels)
     {
         // Dump the pixel buffer
         std::vector<Uint8>().swap(m_pixels);
-        
+
         // Assign the new size
         m_size.x = 0;
         m_size.y = 0;
@@ -278,7 +278,7 @@ void Image::setPixel(unsigned int x, unsigned int y, const Color& color)
     *pixel++ = color.r;
     *pixel++ = color.g;
     *pixel++ = color.b;
-    *pixel++ = color.a;
+    *pixel = color.a;
 }
 
 
