@@ -30,7 +30,6 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
 #include <SFML/System/SmartPointerDefines.hpp>
-#include <SFML/Audio/AudioDevice.hpp>
 
 
 namespace sf
@@ -53,11 +52,12 @@ protected:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~AlResource() = default;
+    virtual ~AlResource();
 
 
 private:
-    SP<sf::priv::AudioDevice> deviceHolder = nullptr;
+    class impl;
+    std::unique_ptr<impl> pimpl;
 };
 
 } // namespace sf

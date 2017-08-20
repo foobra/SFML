@@ -28,11 +28,15 @@
 #include <SFML/Audio/AlResource.hpp>
 #include <SFML/System/Singleton.hpp>
 #include <SFML/Audio/AudioDevice.hpp>
-#include <SFML/System/SmartPointerDefines.hpp>
 
 
 namespace sf
 {
+
+struct AlResource::impl
+{
+    SP<sf::priv::AudioDevice> deviceHolder = nullptr;
+};
 
 
 #define inner (Singleton<InnerType>::Get())
@@ -46,19 +50,21 @@ struct InnerType
 
 ////////////////////////////////////////////////////////////
 AlResource::AlResource()
+    : pimpl(std::make_unique<impl>())
 {
     // If this is the very first resource, trigger the global device initialization
     if (auto device = inner.globalDevice.lock())
     {
-        deviceHolder = device;
+        pimpl->deviceHolder = device;
     }
     else
     {
-        deviceHolder = MakeSP<sf::priv::AudioDevice>();
-        inner.globalDevice = deviceHolder;
+        pimpl->deviceHolder = MakeSP<sf::priv::AudioDevice>();
+        inner.globalDevice = pimpl->deviceHolder;
     }
 }
 
+AlResource::~AlResource() = default;
 
 
 } // namespace sf
