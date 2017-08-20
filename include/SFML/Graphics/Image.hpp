@@ -31,6 +31,7 @@
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Rect.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <string>
 #include <vector>
 
@@ -61,6 +62,8 @@ public:
     ////////////////////////////////////////////////////////////
     ~Image();
 
+    DISABLE_COPY_MOVE_FUNC(Image);
+
     ////////////////////////////////////////////////////////////
     /// \brief Create the image and fill it with a unique color
     ///
@@ -69,7 +72,7 @@ public:
     /// \param color  Fill color
     ///
     ////////////////////////////////////////////////////////////
-    void create(unsigned int width, unsigned int height, const Color& color = Color(0, 0, 0));
+    Image(unsigned int width, unsigned int height, const Color& color = Color(0, 0, 0));
 
     ////////////////////////////////////////////////////////////
     /// \brief Create the image from an array of pixels
@@ -84,7 +87,7 @@ public:
     /// \param pixels Array of pixels to copy to the image
     ///
     ////////////////////////////////////////////////////////////
-    void create(unsigned int width, unsigned int height, const Uint8* pixels);
+    Image(unsigned int width, unsigned int height, const Uint8* pixels);
 
     ////////////////////////////////////////////////////////////
     /// \brief Load the image from a file on disk

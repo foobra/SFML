@@ -16,9 +16,7 @@ class Effect : public sf::Drawable
 {
 public:
 
-    virtual ~Effect()
-    {
-    }
+    virtual ~Effect() = default;
 
     static void setFont(const sf::Font& font)
     {

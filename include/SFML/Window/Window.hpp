@@ -111,7 +111,7 @@ public:
     /// Closes the window and frees all the resources attached to it.
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~Window();
+    ~Window() override;
 
     DISABLE_COPY_MOVE_FUNC(Window);
 

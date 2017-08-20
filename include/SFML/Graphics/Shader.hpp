@@ -95,7 +95,7 @@ public:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    ~Shader();
+    ~Shader() override;
 
 
     DISABLE_COPY_MOVE_FUNC(Shader);

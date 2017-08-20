@@ -69,6 +69,8 @@ namespace sf::priv
         ////////////////////////////////////////////////////////////
         ~WindowImplWin32() override;
 
+        DISABLE_COPY_MOVE_FUNC(WindowImplWin32);
+
         ////////////////////////////////////////////////////////////
         /// \brief Get the OS-specific handle of the window
         ///

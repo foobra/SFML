@@ -31,6 +31,7 @@
 #include <SFML/Audio/Export.hpp>
 #include <SFML/Audio/AlResource.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <string>
 #include <vector>
 #include <set>

@@ -782,8 +782,7 @@ Font::Page::Page() :
 nextRow(3)
 {
     // Make sure that the texture is initialized by default
-    sf::Image image;
-    image.create(128, 128, Color(255, 255, 255, 0));
+    sf::Image image(128, 128, Color(255, 255, 255, 0));
 
     // Reserve a 2x2 white square for texturing underlines
     for (int x = 0; x < 2; ++x)

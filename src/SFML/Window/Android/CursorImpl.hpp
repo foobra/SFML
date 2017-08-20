@@ -51,17 +51,16 @@ public:
     /// Refer to sf::Cursor::Cursor().
     ///
     ////////////////////////////////////////////////////////////
-    CursorImpl();
+    CursorImpl() = default;
 
     ////////////////////////////////////////////////////////////
     /// \brief Destructor
     ///
     /// Refer to sf::Cursor::~Cursor().
-
-    DISABLE_COPY_MOVE_FUNC(CursorImpl);
     ///
     ////////////////////////////////////////////////////////////
-    ~CursorImpl();
+    ~CursorImpl() = default;
+    DISABLE_COPY_MOVE_FUNC(CursorImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create a cursor with the provided image

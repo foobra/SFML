@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Config.hpp>
 #include <SFML/System/Export.hpp>
+#include <SFML/System/NonCopyable.hpp>
 
 
 namespace sf
@@ -42,11 +43,15 @@ class SFML_SYSTEM_API InputStream
 {
 public:
 
+    InputStream() = default;
+
     ////////////////////////////////////////////////////////////
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
     virtual ~InputStream() = default;
+
+    DISABLE_COPY_MOVE_FUNC(InputStream);
 
     ////////////////////////////////////////////////////////////
     /// \brief Read data from the stream

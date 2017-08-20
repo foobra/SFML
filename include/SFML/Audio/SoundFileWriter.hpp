@@ -29,6 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <string>
 
 
@@ -42,11 +43,15 @@ class SFML_AUDIO_API SoundFileWriter
 {
 public:
 
+    SoundFileWriter() = default;
     ////////////////////////////////////////////////////////////
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
     virtual ~SoundFileWriter() = default;
+
+
+    DISABLE_COPY_MOVE_FUNC(SoundFileWriter);
 
     ////////////////////////////////////////////////////////////
     /// \brief Open a sound file for writing

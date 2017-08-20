@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/Transform.hpp>
+#include <SFML/System/NonCopyable.hpp>
 
 
 namespace sf
@@ -52,7 +53,9 @@ public:
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~Transformable();
+    virtual ~Transformable() = default;
+
+    DISABLE_COPY_MOVE_FUNC(Transformable);
 
     ////////////////////////////////////////////////////////////
     /// \brief set the position of the object

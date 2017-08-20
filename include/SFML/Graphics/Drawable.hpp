@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/Export.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/System/NonCopyable.hpp>
 
 
 namespace sf
@@ -45,11 +46,14 @@ class SFML_GRAPHICS_API Drawable
 {
 public:
 
+    Drawable() = default;
     ////////////////////////////////////////////////////////////
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
     virtual ~Drawable() = default;
+
+    DISABLE_COPY_MOVE_FUNC(Drawable);
 
 protected:
 

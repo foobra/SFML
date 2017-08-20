@@ -62,7 +62,7 @@ Image::~Image()
 
 
 ////////////////////////////////////////////////////////////
-void Image::create(unsigned int width, unsigned int height, const Color& color)
+Image::Image(unsigned int width, unsigned int height, const Color& color)
 {
     if (width && height)
     {
@@ -100,7 +100,7 @@ void Image::create(unsigned int width, unsigned int height, const Color& color)
 
 
 ////////////////////////////////////////////////////////////
-void Image::create(unsigned int width, unsigned int height, const Uint8* pixels)
+Image::Image(unsigned int width, unsigned int height, const Uint8* pixels)
 {
     if (pixels && width && height)
     {

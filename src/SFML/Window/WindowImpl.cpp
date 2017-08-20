@@ -93,13 +93,6 @@ m_joystickThreshold(0.1f)
 
 
 ////////////////////////////////////////////////////////////
-WindowImpl::~WindowImpl()
-{
-    // Nothing to do
-}
-
-
-////////////////////////////////////////////////////////////
 void WindowImpl::setJoystickThreshold(float threshold)
 {
     m_joystickThreshold = threshold;

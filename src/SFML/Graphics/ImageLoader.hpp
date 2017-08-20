@@ -49,6 +49,7 @@ class ImageLoader final
 {
 public:
 
+    DISABLE_COPY_MOVE_FUNC(ImageLoader);
     ////////////////////////////////////////////////////////////
     /// \brief Get the unique instance of the class
     ///
@@ -119,8 +120,6 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~ImageLoader() = default;
-
-    DISABLE_COPY_MOVE_FUNC(ImageLoader);
 
     ////////////////////////////////////////////////////////////
     /// \brief Save an image file in JPEG format

@@ -77,6 +77,8 @@ public:
     ////////////////////////////////////////////////////////////
     ~EglContext();
 
+    DISABLE_COPY_MOVE_FUNC(EglContext);
+
     ////////////////////////////////////////////////////////////
     /// \brief Activate the context as the current target
     ///        for rendering

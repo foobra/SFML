@@ -87,6 +87,8 @@ public:
     ////////////////////////////////////////////////////////////
     ~WindowImplCocoa() override;
 
+    DISABLE_COPY_MOVE_FUNC(WindowImplCocoa);
+
     ////////////////////////////////////////////////////////////
     /// \brief Window Closed Event - called by the cocoa window object
     ///

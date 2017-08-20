@@ -32,6 +32,7 @@
 #include <SFML/Audio/SoundSource.hpp>
 #include <SFML/System/Thread.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <mutex>
 #include <cstdlib>
 
@@ -61,6 +62,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~SoundStream() override;
+
+    DISABLE_COPY_MOVE_FUNC(SoundStream);
 
     ////////////////////////////////////////////////////////////
     /// \brief Start or resume playing the audio stream

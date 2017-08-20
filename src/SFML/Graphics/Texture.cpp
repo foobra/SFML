@@ -391,10 +391,7 @@ Image Texture::copyToImage() const
 #endif // SFML_OPENGL_ES
 
     // Create the image
-    Image image;
-    image.create(m_size.x, m_size.y, &pixels[0]);
-
-    return image;
+    return Image(m_size.x, m_size.y, &pixels[0]);
 }
 
 

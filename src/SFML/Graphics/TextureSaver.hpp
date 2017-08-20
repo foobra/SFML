@@ -29,6 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/Graphics/GLCheck.hpp>
+#include <SFML/System/NonCopyable.hpp>
 
 
 namespace sf::priv
@@ -56,6 +57,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~TextureSaver();
+
+    DISABLE_COPY_MOVE_FUNC(TextureSaver);
 
 private:
 

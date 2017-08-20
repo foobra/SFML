@@ -29,6 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/System/Vector3.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <set>
 #include <string>
 
@@ -56,6 +57,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~AudioDevice();
+
+    DISABLE_COPY_MOVE_FUNC(AudioDevice);
 
     ////////////////////////////////////////////////////////////
     /// \brief Check if an OpenAL extension is supported

@@ -87,7 +87,7 @@ public:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~WindowImpl();
+    virtual ~WindowImpl() = default;
 
     DISABLE_COPY_MOVE_FUNC(WindowImpl);
 

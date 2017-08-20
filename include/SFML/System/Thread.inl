@@ -27,7 +27,7 @@ namespace priv
 // Base class for abstract thread functions
 struct ThreadFunc
 {
-    virtual ~ThreadFunc() {}
+    virtual ~ThreadFunc() = default;
     virtual void run() = 0;
 };
 

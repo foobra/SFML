@@ -29,6 +29,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <string>
 
 
@@ -55,11 +56,14 @@ public:
         unsigned int sampleRate;   ///< Samples rate of the sound, in samples per second
     };
 
+    SoundFileReader() = default;
     ////////////////////////////////////////////////////////////
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
     virtual ~SoundFileReader() = default;
+
+    DISABLE_COPY_MOVE_FUNC(SoundFileReader);
 
     ////////////////////////////////////////////////////////////
     /// \brief Open a sound file for reading

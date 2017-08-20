@@ -31,6 +31,7 @@
 #include <SFML/Network/Export.hpp>
 #include <string>
 #include <vector>
+#include <SFML/Window.hpp>
 
 
 namespace sf
@@ -63,7 +64,9 @@ public:
     /// \brief Virtual destructor
     ///
     ////////////////////////////////////////////////////////////
-    virtual ~Packet();
+    virtual ~Packet() = default;
+
+    DISABLE_COPY_MOVE_FUNC(Packet);
 
     ////////////////////////////////////////////////////////////
     /// \brief Append data to the end of the packet

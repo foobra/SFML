@@ -56,11 +56,10 @@ public:
     /// \brief Destructor
     ///
     /// Refer to sf::Cursor::~Cursor().
-
-    DISABLE_COPY_MOVE_FUNC(CursorImpl);
     ///
     ////////////////////////////////////////////////////////////
     ~CursorImpl();
+    DISABLE_COPY_MOVE_FUNC(CursorImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create a cursor with the provided image

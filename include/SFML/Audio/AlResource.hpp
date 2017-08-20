@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
 #include <SFML/System/SmartPointerDefines.hpp>
+#include <SFML/System/NonCopyable.hpp>
 
 
 namespace sf
@@ -53,6 +54,8 @@ protected:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~AlResource();
+
+    DISABLE_COPY_MOVE_FUNC(AlResource);
 
 
 private:

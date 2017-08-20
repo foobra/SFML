@@ -55,7 +55,9 @@ protected:
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
-    ~GlResource();
+    virtual ~GlResource();
+
+    DISABLE_COPY_MOVE_FUNC(GlResource);
 
     ////////////////////////////////////////////////////////////
     /// \brief RAII helper class to temporarily lock an available context for use

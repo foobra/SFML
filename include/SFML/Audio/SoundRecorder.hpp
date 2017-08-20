@@ -30,6 +30,7 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Audio/Export.hpp>
 #include <SFML/Audio/AlResource.hpp>
+#include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Thread.hpp>
 #include <SFML/System/Time.hpp>
 #include <vector>
@@ -51,6 +52,9 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~SoundRecorder() override;
+
+
+    DISABLE_COPY_MOVE_FUNC(SoundRecorder);
 
     ////////////////////////////////////////////////////////////
     /// \brief Start the capture

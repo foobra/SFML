@@ -101,6 +101,8 @@ public:
     ////////////////////////////////////////////////////////////
     ~RenderWindow() override = default;
 
+    DISABLE_COPY_MOVE_FUNC(RenderWindow);
+
     ////////////////////////////////////////////////////////////
     /// \brief Get the size of the rendering region of the window
     ///

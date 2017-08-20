@@ -65,7 +65,7 @@ public:
     /// The destructor deactivates and destroys the context
     ///
     ////////////////////////////////////////////////////////////
-    ~Context();
+    ~Context() override;
 
     DISABLE_COPY_MOVE_FUNC(Context);
 

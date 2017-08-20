@@ -51,6 +51,8 @@ public:
     ////////////////////////////////////////////////////////////
     ~SoundBufferRecorder() override;
 
+    DISABLE_COPY_MOVE_FUNC(SoundBufferRecorder);
+
     ////////////////////////////////////////////////////////////
     /// \brief Get the sound buffer containing the captured audio data
     ///

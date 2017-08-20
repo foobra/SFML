@@ -55,6 +55,7 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~RenderTextureImplFBO() override;
+    DISABLE_COPY_MOVE_FUNC(RenderTextureImplFBO);
 
     ////////////////////////////////////////////////////////////
     /// \brief Check whether the system supports FBOs or not
