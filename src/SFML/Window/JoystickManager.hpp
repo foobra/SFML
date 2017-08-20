@@ -39,7 +39,7 @@ namespace sf::priv
 /// \brief Global joystick manager
 ///
 ////////////////////////////////////////////////////////////
-class JoystickManager final : NonCopyable
+class JoystickManager final
 {
 public:
 
@@ -100,6 +100,8 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~JoystickManager();
+
+    DISABLE_COPY_MOVE_FUNC(JoystickManager);
 
     ////////////////////////////////////////////////////////////
     /// \brief Joystick information and state

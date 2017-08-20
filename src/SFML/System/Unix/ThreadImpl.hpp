@@ -42,7 +42,7 @@ namespace priv
 ////////////////////////////////////////////////////////////
 /// \brief Unix implementation of threads
 ////////////////////////////////////////////////////////////
-class ThreadImpl final : NonCopyable
+class ThreadImpl final
 {
 public:
 
@@ -52,7 +52,11 @@ public:
     /// \param owner The Thread instance to run
     ///
     ////////////////////////////////////////////////////////////
-    ThreadImpl(Thread* owner);
+    explicit ThreadImpl(Thread* owner);
+
+    ~ThreadImpl() = default;
+
+    DISABLE_COPY_MOVE_FUNC(ThreadImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait until the thread finishes

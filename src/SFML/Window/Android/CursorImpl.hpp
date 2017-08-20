@@ -41,7 +41,7 @@ namespace sf::priv
 /// This is a typical "not supported" implementation.
 ///
 ////////////////////////////////////////////////////////////
-class CursorImpl final: NonCopyable
+class CursorImpl final
 {
 public:
 
@@ -57,6 +57,8 @@ public:
     /// \brief Destructor
     ///
     /// Refer to sf::Cursor::~Cursor().
+
+    DISABLE_COPY_MOVE_FUNC(CursorImpl);
     ///
     ////////////////////////////////////////////////////////////
     ~CursorImpl();

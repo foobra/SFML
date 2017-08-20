@@ -42,7 +42,7 @@ namespace sf::priv
 /// It's only purpose is to help sf::priv::JoystickImpl class.
 ///
 ////////////////////////////////////////////////////////////
-class HIDJoystickManager final : NonCopyable
+class HIDJoystickManager final
 {
 public:
 
@@ -85,6 +85,8 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~HIDJoystickManager();
+
+    DISABLE_COPY_MOVE_FUNC(HIDJoystickManager);
 
     ////////////////////////////////////////////////////////////
     /// \brief Make sure all event have been processed in the run loop

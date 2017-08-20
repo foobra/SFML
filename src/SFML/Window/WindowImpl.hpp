@@ -54,7 +54,7 @@ namespace priv
 /// \brief Abstract base class for OS-specific window implementation
 ///
 ////////////////////////////////////////////////////////////
-class WindowImpl : NonCopyable
+class WindowImpl
 {
 public:
 
@@ -88,6 +88,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~WindowImpl();
+
+    DISABLE_COPY_MOVE_FUNC(WindowImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Change the joystick threshold, i.e. the value below which

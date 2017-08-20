@@ -41,7 +41,7 @@ class SoundFileWriter;
 /// \brief Provide write access to sound files
 ///
 ////////////////////////////////////////////////////////////
-class SFML_AUDIO_API OutputSoundFile : NonCopyable
+class SFML_AUDIO_API OutputSoundFile
 {
 public:
 
@@ -58,6 +58,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~OutputSoundFile();
+
+    DISABLE_COPY_MOVE_FUNC(OutputSoundFile);
 
     ////////////////////////////////////////////////////////////
     /// \brief Open the sound file from the disk for writing

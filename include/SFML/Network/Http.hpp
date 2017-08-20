@@ -43,7 +43,7 @@ namespace sf
 /// \brief A HTTP client
 ///
 ////////////////////////////////////////////////////////////
-class SFML_NETWORK_API Http : NonCopyable
+class SFML_NETWORK_API Http
 {
 public:
 
@@ -366,6 +366,9 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     Http(const std::string& host, unsigned short port = 0);
+
+
+    DISABLE_COPY_MOVE_FUNC(Http);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the target host

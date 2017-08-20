@@ -45,7 +45,7 @@ namespace priv
 /// \brief Utility class to manipulate threads
 ///
 ////////////////////////////////////////////////////////////
-class SFML_SYSTEM_API Thread : NonCopyable
+class SFML_SYSTEM_API Thread
 {
 public:
 
@@ -133,6 +133,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~Thread();
+
+    DISABLE_COPY_MOVE_FUNC(Thread);
 
     ////////////////////////////////////////////////////////////
     /// \brief Run the thread

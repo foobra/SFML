@@ -52,7 +52,7 @@ namespace sf
 /// \brief Implementation of input stream based on a file
 ///
 ////////////////////////////////////////////////////////////
-class SFML_SYSTEM_API FileInputStream : public InputStream, NonCopyable
+class SFML_SYSTEM_API FileInputStream : public InputStream
 {
 public:
     ////////////////////////////////////////////////////////////
@@ -66,6 +66,7 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~FileInputStream() override;
+    DISABLE_COPY_MOVE_FUNC(FileInputStream);
 
     ////////////////////////////////////////////////////////////
     /// \brief Open the stream from a file path

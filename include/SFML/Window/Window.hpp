@@ -55,7 +55,7 @@ class Event;
 /// \brief Window that serves as a target for OpenGL rendering
 ///
 ////////////////////////////////////////////////////////////
-class SFML_WINDOW_API Window : GlResource, NonCopyable
+class SFML_WINDOW_API Window : GlResource
 {
 public:
 
@@ -112,6 +112,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~Window();
+
+    DISABLE_COPY_MOVE_FUNC(Window);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create (or recreate) the window

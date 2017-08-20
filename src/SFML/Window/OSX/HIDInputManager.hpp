@@ -49,7 +49,7 @@ typedef std::vector<IOHIDElementRef> IOHIDElements;
 /// Its purpose is to help sf::priv::InputImpl class.
 ///
 ////////////////////////////////////////////////////////////
-class HIDInputManager final : NonCopyable
+class HIDInputManager final
 {
 public:
 
@@ -130,6 +130,8 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~HIDInputManager();
+
+    DISABLE_COPY_MOVE_FUNC(HIDInputManager);
 
     ////////////////////////////////////////////////////////////
     /// \brief Initialize the keyboard part of this class

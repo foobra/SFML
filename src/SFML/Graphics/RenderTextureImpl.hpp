@@ -37,15 +37,18 @@ namespace sf::priv
 /// \brief Abstract base class for render-texture implementations
 ///
 ////////////////////////////////////////////////////////////
-class RenderTextureImpl : NonCopyable
+class RenderTextureImpl
 {
 public:
 
+    RenderTextureImpl() = default;
     ////////////////////////////////////////////////////////////
     /// \brief Destructor
     ///
     ////////////////////////////////////////////////////////////
     virtual ~RenderTextureImpl() = default;
+
+    DISABLE_COPY_MOVE_FUNC(RenderTextureImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create the render texture implementation

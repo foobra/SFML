@@ -146,7 +146,7 @@ namespace
 
     // This structure contains all the state necessary to
     // track TransientContext usage
-    struct TransientContext : private sf::NonCopyable
+    struct TransientContext
     {
         ////////////////////////////////////////////////////////////
         /// \brief Constructor
@@ -182,6 +182,8 @@ namespace
             delete sharedContextLock;
             delete context;
         }
+
+        DISABLE_COPY_MOVE_FUNC(TransientContext);
 
         ///////////////////////////////////////////////////////////
         // Member data
@@ -266,7 +268,7 @@ void GlContext::initResource()
                     {
                         const char* extensionString = reinterpret_cast<const char*>(glGetStringiFunc(GL_EXTENSIONS, i));
 
-                        extensions.push_back(extensionString);
+                        extensions.emplace_back(extensionString);
                     }
                 }
             }

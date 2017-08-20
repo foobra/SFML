@@ -47,7 +47,7 @@ typedef void (*GlFunctionPointer)();
 /// \brief Class holding a valid drawing context
 ///
 ////////////////////////////////////////////////////////////
-class SFML_WINDOW_API Context : GlResource, NonCopyable
+class SFML_WINDOW_API Context : GlResource
 {
 public:
 
@@ -66,6 +66,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~Context();
+
+    DISABLE_COPY_MOVE_FUNC(Context);
 
     ////////////////////////////////////////////////////////////
     /// \brief Activate or deactivate explicitly the context

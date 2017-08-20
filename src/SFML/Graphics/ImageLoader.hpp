@@ -32,6 +32,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <string>
 #include <vector>
+#include <SFML/Config.hpp>
 
 
 namespace sf
@@ -44,7 +45,7 @@ namespace priv
 /// \brief Load/save image files
 ///
 ////////////////////////////////////////////////////////////
-class ImageLoader final : NonCopyable
+class ImageLoader final
 {
 public:
 
@@ -118,6 +119,8 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~ImageLoader() = default;
+
+    DISABLE_COPY_MOVE_FUNC(ImageLoader);
 
     ////////////////////////////////////////////////////////////
     /// \brief Save an image file in JPEG format

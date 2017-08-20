@@ -53,7 +53,7 @@ namespace sf::priv
 /// \brief Mac OS X implementation of Cursor
 ///
 ////////////////////////////////////////////////////////////
-class CursorImpl final : NonCopyable
+class CursorImpl final
 {
 public:
 
@@ -69,6 +69,8 @@ public:
     /// \brief Destructor
     ///
     /// Refer to sf::Cursor::~Cursor().
+
+    DISABLE_COPY_MOVE_FUNC(CursorImpl);
     ///
     ////////////////////////////////////////////////////////////
     ~CursorImpl();

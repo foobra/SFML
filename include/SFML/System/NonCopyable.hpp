@@ -28,102 +28,34 @@
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include <SFML/System/Export.hpp>
 
 
-namespace sf
-{
-////////////////////////////////////////////////////////////
-/// \brief Utility class that makes any derived
-///        class non-copyable
-///
-////////////////////////////////////////////////////////////
-class SFML_SYSTEM_API NonCopyable
-{
-protected:
+#define DISABLE_DEFAULT_CTOR(className) \
+className() = delete
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Default constructor
-    ///
-    /// Because this class has a copy constructor, the compiler
-    /// will not automatically generate the default constructor.
-    /// That's why we must define it explicitly.
-    ///
-    ////////////////////////////////////////////////////////////
-    NonCopyable() {}
-    
-    ////////////////////////////////////////////////////////////
-    /// \brief Default destructor
-    ///
-    /// By declaring a protected destructor it's impossible to
-    /// call delete on a pointer of sf::NonCopyable, thus
-    /// preventing possible resource leaks.
-    ///
-    ////////////////////////////////////////////////////////////
-    ~NonCopyable() {}
+#define DISABLE_DEFAULT_DTOR(className) \
+~className() = delete
 
-private:
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Disabled copy constructor
-    ///
-    /// By making the copy constructor private, the compiler will
-    /// trigger an error if anyone outside tries to use it.
-    /// To prevent NonCopyable or friend classes from using it,
-    /// we also give no definition, so that the linker will
-    /// produce an error if the first protection was inefficient.
-    ///
-    ////////////////////////////////////////////////////////////
-    NonCopyable(const NonCopyable&);
+#define DISABLE_COPY_FUNC(className) \
+className(const className &) = delete;\
+className& operator= (const className &) = delete
 
-    ////////////////////////////////////////////////////////////
-    /// \brief Disabled assignment operator
-    ///
-    /// By making the assignment operator private, the compiler will
-    /// trigger an error if anyone outside tries to use it.
-    /// To prevent NonCopyable or friend classes from using it,
-    /// we also give no definition, so that the linker will
-    /// produce an error if the first protection was inefficient.
-    ///
-    ////////////////////////////////////////////////////////////
-    NonCopyable& operator =(const NonCopyable&);
-};
+#define DISABLE_MOVE_FUNC(className) \
+className(className &&) noexcept = delete;\
+className& operator= (className &&) noexcept = delete
 
-} // namespace sf
+#define DISABLE_COPY_MOVE_FUNC(className) \
+DISABLE_COPY_FUNC(className);\
+DISABLE_MOVE_FUNC(className);
+
+#define DISABLE_ALL_DEFAULT_FUNC(className)\
+DISABLE_DEFAULT_CTOR(className);\
+DISABLE_DEFAULT_DTOR(className);\
+DISABLE_COPY_MOVE_FUNC(className)
+
+
 
 
 #endif // SFML_NONCOPYABLE_HPP
 
-
-////////////////////////////////////////////////////////////
-/// \class sf::NonCopyable
-/// \ingroup system
-///
-/// This class makes its instances non-copyable, by explicitly
-/// disabling its copy constructor and its assignment operator.
-///
-/// To create a non-copyable class, simply inherit from
-/// sf::NonCopyable.
-///
-/// The type of inheritance (public or private) doesn't matter,
-/// the copy constructor and assignment operator are declared private
-/// in sf::NonCopyable so they will end up being inaccessible in both
-/// cases. Thus you can use a shorter syntax for inheriting from it
-/// (see below).
-///
-/// Usage example:
-/// \code
-/// class MyNonCopyableClass : sf::NonCopyable
-/// {
-///     ...
-/// };
-/// \endcode
-///
-/// Deciding whether the instances of a class can be copied
-/// or not is a very important design choice. You are strongly
-/// encouraged to think about it before writing a class,
-/// and to use sf::NonCopyable when necessary to prevent
-/// many potential future errors when using it. This is also
-/// a very important indication to users of your class.
-///
-////////////////////////////////////////////////////////////

@@ -42,7 +42,7 @@ class SocketSelector;
 /// \brief Base class for all the socket types
 ///
 ////////////////////////////////////////////////////////////
-class SFML_NETWORK_API Socket : NonCopyable
+class SFML_NETWORK_API Socket
 {
 public:
 
@@ -75,6 +75,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~Socket();
+
+    DISABLE_COPY_MOVE_FUNC(Socket);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the blocking state of the socket

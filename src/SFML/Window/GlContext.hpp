@@ -42,7 +42,7 @@ class WindowImpl;
 /// \brief Abstract class representing an OpenGL context
 ///
 ////////////////////////////////////////////////////////////
-class GlContext : NonCopyable
+class GlContext
 {
 public:
 
@@ -146,6 +146,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~GlContext();
+
+    DISABLE_COPY_MOVE_FUNC(GlContext);
 
     ////////////////////////////////////////////////////////////
     /// \brief Get the settings of the context

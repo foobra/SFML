@@ -48,7 +48,7 @@ class Drawable;
 /// \brief Base class for all render targets (window, texture, ...)
 ///
 ////////////////////////////////////////////////////////////
-class SFML_GRAPHICS_API RenderTarget : NonCopyable
+class SFML_GRAPHICS_API RenderTarget
 {
 public:
 
@@ -57,6 +57,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~RenderTarget() = default;
+
+    DISABLE_COPY_MOVE_FUNC(RenderTarget);
 
     ////////////////////////////////////////////////////////////
     /// \brief Clear the entire target with a single color

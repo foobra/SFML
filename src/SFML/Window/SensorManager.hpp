@@ -39,7 +39,7 @@ namespace sf::priv
 /// \brief Global sensor manager
 ///
 ////////////////////////////////////////////////////////////
-class SensorManager final : NonCopyable
+class SensorManager final
 {
 public:
 
@@ -109,6 +109,8 @@ private:
     ///
     ////////////////////////////////////////////////////////////
     ~SensorManager();
+
+    DISABLE_COPY_MOVE_FUNC(SensorManager);
 
     ////////////////////////////////////////////////////////////
     /// \brief Sensor information and state

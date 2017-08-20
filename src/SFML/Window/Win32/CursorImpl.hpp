@@ -40,7 +40,7 @@ namespace sf::priv
 /// \brief Win32 implementation of Cursor
 ///
 ////////////////////////////////////////////////////////////
-class CursorImpl final : NonCopyable
+class CursorImpl final
 {
 public:
 
@@ -56,6 +56,8 @@ public:
     /// \brief Destructor
     ///
     /// Refer to sf::Cursor::~Cursor().
+
+    DISABLE_COPY_MOVE_FUNC(CursorImpl);
     ///
     ////////////////////////////////////////////////////////////
     ~CursorImpl();

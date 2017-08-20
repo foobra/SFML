@@ -49,7 +49,7 @@ class Transform;
 /// \brief Shader class (vertex, geometry and fragment)
 ///
 ////////////////////////////////////////////////////////////
-class SFML_GRAPHICS_API Shader : GlResource, NonCopyable
+class SFML_GRAPHICS_API Shader : GlResource
 {
 public:
 
@@ -96,6 +96,9 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~Shader();
+
+
+    DISABLE_COPY_MOVE_FUNC(Shader);
 
     ////////////////////////////////////////////////////////////
     /// \brief Load the vertex, geometry or fragment shader from a file

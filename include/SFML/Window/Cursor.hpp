@@ -43,7 +43,7 @@ namespace priv
 /// \brief Cursor defines the appearance of a system cursor
 ///
 ////////////////////////////////////////////////////////////
-class SFML_WINDOW_API Cursor : NonCopyable
+class SFML_WINDOW_API Cursor
 {
 public:
 
@@ -108,6 +108,8 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     ~Cursor();
+
+    DISABLE_COPY_MOVE_FUNC(Cursor);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create a cursor with the provided image

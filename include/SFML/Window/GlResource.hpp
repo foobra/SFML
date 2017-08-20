@@ -61,7 +61,7 @@ protected:
     /// \brief RAII helper class to temporarily lock an available context for use
     ///
     ////////////////////////////////////////////////////////////
-    class SFML_WINDOW_API TransientContextLock : NonCopyable
+    class SFML_WINDOW_API TransientContextLock
     {
     public:
         ////////////////////////////////////////////////////////////
@@ -75,6 +75,8 @@ protected:
         ///
         ////////////////////////////////////////////////////////////
         ~TransientContextLock();
+
+        DISABLE_COPY_MOVE_FUNC(TransientContextLock);
     };
 };
 
