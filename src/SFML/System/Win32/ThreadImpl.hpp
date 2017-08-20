@@ -70,7 +70,7 @@ public:
     ////////////////////////////////////////////////////////////
     ~ThreadImpl();
 
-    DISABLE_COPY_MOVE_FUNC(final);
+    DISABLE_COPY_MOVE_FUNC(ThreadImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Wait until the thread finishes

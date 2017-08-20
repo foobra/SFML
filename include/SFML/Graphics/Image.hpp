@@ -62,7 +62,7 @@ public:
     ////////////////////////////////////////////////////////////
     ~Image();
 
-    DISABLE_COPY_MOVE_FUNC(Image);
+    //DISABLE_COPY_MOVE_FUNC(Image);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create the image and fill it with a unique color

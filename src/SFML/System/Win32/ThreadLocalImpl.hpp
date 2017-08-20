@@ -53,7 +53,7 @@ public:
     ////////////////////////////////////////////////////////////
     ~ThreadLocalImpl();
 
-    DISABLE_COPY_MOVE_FUNC(final);
+    DISABLE_COPY_MOVE_FUNC(ThreadLocalImpl);
 
     ////////////////////////////////////////////////////////////
     /// \brief Set the thread-specific value of the variable
