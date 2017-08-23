@@ -35,6 +35,7 @@
 #include <SFML/System/NonCopyable.hpp>
 #include <mutex>
 #include <cstdlib>
+#include <array>
 
 
 namespace sf
@@ -285,7 +286,6 @@ private:
 
     enum
     {
-        BufferCount = 3,    ///< Number of audio buffers used by the streaming loop
         BufferRetries = 2   ///< Number of retries (excluding initial try) for onGetData()
     };
 
@@ -296,13 +296,13 @@ private:
     mutable std::recursive_mutex m_threadMutex;             ///< Thread mutex
     Status                       m_threadStartState;        ///< State the thread starts in (Playing, Paused, Stopped)
     bool                         m_isStreaming;             ///< Streaming state (true = playing, false = stopped)
-    unsigned int                 m_buffers[BufferCount];    ///< Sound buffers used to store temporary audio data
+    std::array<unsigned int, 3>  m_buffers;                 ///< Sound buffers used to store temporary audio data
     unsigned int                 m_channelCount;            ///< Number of channels (1 = mono, 2 = stereo, ...)
     unsigned int                 m_sampleRate;              ///< Frequency (samples / second)
     Uint32                       m_format;                  ///< Format of the internal sound buffers
     bool                         m_loop;                    ///< Loop flag (true to loop, false to play once)
     Uint64                       m_samplesProcessed;        ///< Number of buffers processed since beginning of the stream
-    bool                         m_endBuffers[BufferCount]; ///< Each buffer is marked as "end buffer" or not, for proper duration calculation
+    std::array<bool, 3>          m_endBuffers;              ///< Each buffer is marked as "end buffer" or not, for proper duration calculation
 };
 
 } // namespace sf

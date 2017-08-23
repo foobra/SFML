@@ -277,9 +277,9 @@ void SoundStream::streamData()
     }
 
     // Create the buffers
-    alCheck(alGenBuffers(BufferCount, m_buffers));
-    for (int i = 0; i < BufferCount; ++i)
-        m_endBuffers[i] = false;
+    alCheck(alGenBuffers(m_buffers.size(), m_buffers.data()));
+    for (auto &&buffer : m_endBuffers)
+        buffer = false;
 
     // Fill the queue
     requestStop = fillQueue();
@@ -331,7 +331,7 @@ void SoundStream::streamData()
 
             // Find its number
             unsigned int bufferNum = 0;
-            for (int i = 0; i < BufferCount; ++i)
+            for (uint i = 0; i < m_buffers.size(); ++i)
                 if (m_buffers[i] == buffer)
                 {
                     bufferNum = i;
@@ -390,7 +390,7 @@ void SoundStream::streamData()
 
     // Delete the buffers
     alCheck(alSourcei(m_source, AL_BUFFER, 0));
-    alCheck(alDeleteBuffers(BufferCount, m_buffers));
+    alCheck(alDeleteBuffers(m_buffers.size(), m_buffers.data()));
 }
 
 
@@ -459,7 +459,7 @@ bool SoundStream::fillQueue()
 {
     // Fill and enqueue all the available buffers
     bool requestStop = false;
-    for (int i = 0; (i < BufferCount) && !requestStop; ++i)
+    for (int i = 0; (i < m_endBuffers.size()) && !requestStop; ++i)
     {
         // Since no sound has been loaded yet, we can't schedule loop seeks preemptively,
         // So if we start on EOF or Loop End, we let fillAndPushBuffer() adjust the sample count

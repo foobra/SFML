@@ -215,7 +215,7 @@ void RenderTarget::draw(const Vertex* vertices, std::size_t vertexCount,
             resetGLStates();
 
         // Check if the vertex count is low enough so that we can pre-transform them
-        bool useVertexCache = (vertexCount <= StatesCache::VertexCacheSize);
+        bool useVertexCache = (vertexCount <= m_cache.vertexCache.size());
         if (useVertexCache)
         {
             // Pre-transform the vertices and store them into the vertex cache
@@ -258,7 +258,7 @@ void RenderTarget::draw(const Vertex* vertices, std::size_t vertexCount,
         {
             // ... and if we already used it previously, we don't need to set the pointers again
             if (!m_cache.useVertexCache)
-                vertices = m_cache.vertexCache;
+                vertices = m_cache.vertexCache.data();
             else
                 vertices = nullptr;
         }
