@@ -75,7 +75,7 @@ namespace sf::priv
 ////////////////////////////////////////////////////////////
 bool SoundFileWriterWav::check(const std::string& filename)
 {
-    std::string extension = filename.substr(filename.find_last_of(".") + 1);
+    std::string extension = filename.substr(filename.find_last_of('.') + 1);
     std::transform(extension.begin(), extension.end(), extension.begin(), ::tolower);
 
     return extension == "wav";

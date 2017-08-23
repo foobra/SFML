@@ -55,6 +55,7 @@ public:
     ///
     ////////////////////////////////////////////////////////////
     static HIDJoystickManager& getInstance();
+    DISABLE_COPY_MOVE_FUNC(HIDJoystickManager);
 
 public:
 
@@ -86,7 +87,6 @@ private:
     ////////////////////////////////////////////////////////////
     ~HIDJoystickManager();
 
-    DISABLE_COPY_MOVE_FUNC(HIDJoystickManager);
 
     ////////////////////////////////////////////////////////////
     /// \brief Make sure all event have been processed in the run loop

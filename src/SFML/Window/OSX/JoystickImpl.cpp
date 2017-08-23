@@ -277,10 +277,10 @@ bool JoystickImpl::open(unsigned int index)
     // Maybe kIOHIDElementTypeInput_Axis is the corresponding type but I can't test.
 
     // Retain all these objects for personal use
-    for (ButtonsVector::iterator it(m_buttons.begin()); it != m_buttons.end(); ++it)
-        CFRetain(*it);
-    for (AxisMap::iterator it(m_axis.begin()); it != m_axis.end(); ++it)
-        CFRetain(it->second);
+    for (const auto &m_button : m_buttons)
+        CFRetain(m_button);
+    for (const auto &m_axi : m_axis)
+        CFRetain(m_axi.second);
 
     // Note: we didn't retain element in the switch because we might have multiple
     // Axis X (for example) and we want to keep only the last one. So to prevent
@@ -296,12 +296,12 @@ bool JoystickImpl::open(unsigned int index)
 ////////////////////////////////////////////////////////////
 void JoystickImpl::close()
 {
-    for (ButtonsVector::iterator it(m_buttons.begin()); it != m_buttons.end(); ++it)
-        CFRelease(*it);
+    for (const auto &m_button : m_buttons)
+        CFRelease(m_button);
     m_buttons.clear();
 
-    for (AxisMap::iterator it(m_axis.begin()); it != m_axis.end(); ++it)
-        CFRelease(it->second);
+    for (const auto &m_axi : m_axis)
+        CFRelease(m_axi.second);
     m_axis.clear();
 
     // And we unregister this joystick
@@ -318,8 +318,8 @@ JoystickCaps JoystickImpl::getCapabilities() const
     caps.buttonCount = m_buttons.size();
 
     // Axis:
-    for (AxisMap::const_iterator it(m_axis.begin()); it != m_axis.end(); ++it) {
-        caps.axes[it->first] = true;
+    for (const auto &m_axi : m_axis) {
+        caps.axes[m_axi.first] = true;
     }
 
     return caps;
@@ -394,10 +394,9 @@ JoystickState JoystickImpl::update()
     }
 
     // Update axes' state
-    for (AxisMap::iterator it = m_axis.begin(); it != m_axis.end(); ++it)
-    {
+    for (const auto &m_axi : m_axis) {
         IOHIDValueRef value = 0;
-        IOHIDDeviceGetValue(IOHIDElementGetDevice(it->second), it->second, &value);
+        IOHIDDeviceGetValue(IOHIDElementGetDevice(m_axi.second), m_axi.second, &value);
 
         // Check for plug out.
         if (!value)
@@ -416,13 +415,13 @@ JoystickState JoystickImpl::update()
         // This method might not be very accurate (the "0 position" can be
         // slightly shift with some device) but we don't care because most
         // of devices are so sensitive that this is not relevant.
-        double  physicalMax   = IOHIDElementGetPhysicalMax(it->second);
-        double  physicalMin   = IOHIDElementGetPhysicalMin(it->second);
+        double  physicalMax   = IOHIDElementGetPhysicalMax(m_axi.second);
+        double  physicalMin   = IOHIDElementGetPhysicalMin(m_axi.second);
         double  scaledMin     = -100;
         double  scaledMax     =  100;
         double  physicalValue = IOHIDValueGetScaledValue(value, kIOHIDValueScaleTypePhysical);
         float   scaledValue   = (((physicalValue - physicalMin) * (scaledMax - scaledMin)) / (physicalMax - physicalMin)) + scaledMin;
-        state.axes[it->first] = scaledValue;
+        state.axes[m_axi.first] = scaledValue;
     }
 
     return state;

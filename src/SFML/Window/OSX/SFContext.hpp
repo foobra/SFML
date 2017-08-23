@@ -69,7 +69,7 @@ public:
     /// \param shared Context to share the new one with (can be nullptr)
     ///
     ////////////////////////////////////////////////////////////
-    SFContext(SFContext* shared);
+    explicit SFContext(SFContext* shared);
 
     ////////////////////////////////////////////////////////////
     /// \brief Create a new context attached to a window

@@ -247,7 +247,7 @@ void GlContext::initResource()
                 while(*extensionString && (*extensionString != ' '))
                     extensionString++;
 
-                extensions.push_back(std::string(extension, extensionString));
+                extensions.emplace_back(extension, extensionString);
             }
             while (*extensionString++);
         }

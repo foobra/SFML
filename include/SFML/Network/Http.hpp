@@ -79,7 +79,7 @@ public:
         /// \param body   Content of the request's body
         ///
         ////////////////////////////////////////////////////////////
-        Request(const std::string& uri = "/", Method method = Get, const std::string& body = "");
+        explicit Request(const std::string& uri = "/", Method method = Get, const std::string& body = "");
 
         ////////////////////////////////////////////////////////////
         /// \brief Set the value of a field
@@ -365,7 +365,7 @@ public:
     /// \param port Port to use for connection
     ///
     ////////////////////////////////////////////////////////////
-    Http(const std::string& host, unsigned short port = 0);
+    explicit Http(const std::string& host, unsigned short port = 0);
 
 
     DISABLE_COPY_MOVE_FUNC(Http);
