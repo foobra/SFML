@@ -41,6 +41,9 @@ namespace sf
 ////////////////////////////////////////////////////////////
 class SFML_AUDIO_API AlResource
 {
+public:
+    DISABLE_COPY_MOVE_FUNC(AlResource);
+
 protected:
 
     ////////////////////////////////////////////////////////////
@@ -54,9 +57,6 @@ protected:
     ///
     ////////////////////////////////////////////////////////////
     virtual ~AlResource();
-
-    DISABLE_COPY_MOVE_FUNC(AlResource);
-
 
 private:
     class impl;
