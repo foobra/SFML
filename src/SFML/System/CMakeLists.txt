@@ -33,6 +33,7 @@ set(SRC
     ${SRCROOT}/MemoryInputStream.cpp
     ${INCROOT}/MemoryInputStream.hpp
     ${SRCROOT}/Singleton.hpp
+    ${SRCROOT}/ScopeGuard.hpp
     ${SRCROOT}/SmartPointerDefines.hpp
 )
 source_group("" FILES ${SRC})
