@@ -26,19 +26,14 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/System/Clock.hpp>
-
-#if defined(SFML_SYSTEM_WINDOWS)
-    #include <SFML/System/Win32/ClockImpl.hpp>
-#else
-    #include <SFML/System/Unix/ClockImpl.hpp>
-#endif
+#include <chrono>
 
 
 namespace sf
 {
 ////////////////////////////////////////////////////////////
 Clock::Clock() :
-m_startTime(priv::ClockImpl::getCurrentTime())
+m_startTime(getCurrentTime())
 {
 }
 
@@ -46,18 +41,24 @@ m_startTime(priv::ClockImpl::getCurrentTime())
 ////////////////////////////////////////////////////////////
 Time Clock::getElapsedTime() const
 {
-    return priv::ClockImpl::getCurrentTime() - m_startTime;
+    return getCurrentTime() - m_startTime;
 }
 
 
 ////////////////////////////////////////////////////////////
 Time Clock::restart()
 {
-    Time now = priv::ClockImpl::getCurrentTime();
+    Time now = getCurrentTime();
     Time elapsed = now - m_startTime;
     m_startTime = now;
 
     return elapsed;
+}
+
+
+Time Clock::getCurrentTime() const
+{
+    return sf::microseconds(std::chrono::system_clock::now().time_since_epoch() / std::chrono::milliseconds(1));
 }
 
 } // namespace sf

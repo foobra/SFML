@@ -44,8 +44,6 @@ source_group("" FILES ${SRC})
 # add platform specific sources
 if(SFML_OS_WINDOWS)
     set(PLATFORM_SRC
-        ${SRCROOT}/Win32/ClockImpl.cpp
-        ${SRCROOT}/Win32/ClockImpl.hpp
         ${SRCROOT}/Win32/SleepImpl.cpp
         ${SRCROOT}/Win32/SleepImpl.hpp
         ${SRCROOT}/Win32/ThreadImpl.cpp
@@ -56,8 +54,6 @@ if(SFML_OS_WINDOWS)
     source_group("windows" FILES ${PLATFORM_SRC})
 else()
     set(PLATFORM_SRC
-        ${SRCROOT}/Unix/ClockImpl.cpp
-        ${SRCROOT}/Unix/ClockImpl.hpp
         ${SRCROOT}/Unix/SleepImpl.cpp
         ${SRCROOT}/Unix/SleepImpl.hpp
         ${SRCROOT}/Unix/ThreadImpl.cpp
