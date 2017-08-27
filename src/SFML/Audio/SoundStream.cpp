@@ -331,7 +331,7 @@ void SoundStream::streamData()
 
             // Find its number
             unsigned int bufferNum = 0;
-            for (uint i = 0; i < m_buffers.size(); ++i)
+            for (unsigned int i = 0; i < m_buffers.size(); ++i)
                 if (m_buffers[i] == buffer)
                 {
                     bufferNum = i;

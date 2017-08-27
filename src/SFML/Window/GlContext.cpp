@@ -27,7 +27,6 @@
 ////////////////////////////////////////////////////////////
 #include <SFML/Window/GlContext.hpp>
 #include <SFML/Window/Context.hpp>
-#include <SFML/System/ThreadLocalPtr.hpp>
 #include <SFML/System/Err.hpp>
 #include <SFML/OpenGL.hpp>
 #include <algorithm>
@@ -139,7 +138,7 @@ namespace
     unsigned int resourceCount = 0;
 
     // This per-thread variable holds the current context for each thread
-    sf::ThreadLocalPtr<sf::priv::GlContext> currentContext(nullptr);
+    thread_local sf::priv::GlContext* currentContext(nullptr);
 
     // The hidden, inactive context that will be shared with all other contexts
     ContextType* sharedContext = nullptr;
@@ -196,7 +195,7 @@ namespace
 
     // This per-thread variable tracks if and how a transient
     // context is currently being used on the current thread
-    sf::ThreadLocalPtr<TransientContext> transientContext(nullptr);
+    thread_local TransientContext* transientContext(nullptr);
 
     // Supported OpenGL extensions
     std::vector<std::string> extensions;

@@ -56,7 +56,7 @@ Time Clock::restart()
 }
 
 
-Time Clock::getCurrentTime() const
+Time Clock::getCurrentTime()
 {
     return sf::microseconds(std::chrono::system_clock::now().time_since_epoch() / std::chrono::milliseconds(1));
 }

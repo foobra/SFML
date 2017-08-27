@@ -80,7 +80,7 @@ private:
     ////////////////////////////////////////////////////////////
     Time m_startTime; ///< Time of last reset, in microseconds
 
-    Time getCurrentTime() const;
+    static Time getCurrentTime();
 };
 
 } // namespace sf
