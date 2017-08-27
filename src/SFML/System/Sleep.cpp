@@ -26,12 +26,7 @@
 // Headers
 ////////////////////////////////////////////////////////////
 #include <SFML/System/Sleep.hpp>
-
-#if defined(SFML_SYSTEM_WINDOWS)
-    #include <SFML/System/Win32/SleepImpl.hpp>
-#else
-    #include <SFML/System/Unix/SleepImpl.hpp>
-#endif
+#include <thread>
 
 
 namespace sf
@@ -40,7 +35,8 @@ namespace sf
 void sleep(Time duration)
 {
     if (duration >= Time::Zero)
-        priv::sleepImpl(duration);
+        std::this_thread::sleep_for(std::chrono::milliseconds(duration.asMicroseconds()));
+
 }
 
 } // namespace sf
