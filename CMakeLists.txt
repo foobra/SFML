@@ -366,7 +366,7 @@ else()
     add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/dummy.cpp
                        COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/dummy.cpp)
 
-    set(SFML_SOURCES ${SFML_HEADERS})
+    set(SFML_SOURCES ${SFML_HEADERS} include/SFML/System/ScopeGuard.hpp)
     list(APPEND SFML_SOURCES ${CMAKE_CURRENT_BINARY_DIR}/dummy.cpp)
 
     # create SFML.framework
