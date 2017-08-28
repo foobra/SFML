@@ -32,7 +32,7 @@
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
 #include <string>
-#include <algorithm>
+#include <memory>
 
 
 namespace sf
@@ -209,23 +209,8 @@ public:
     Uint64 read(Int16* samples, Uint64 maxCount);
 
 private:
-
-    ////////////////////////////////////////////////////////////
-    /// \brief Close the current file
-    ///
-    ////////////////////////////////////////////////////////////
-    void close();
-
-    ////////////////////////////////////////////////////////////
-    // Member data
-    ////////////////////////////////////////////////////////////
-    SoundFileReader* m_reader;       ///< Reader that handles I/O on the file's format
-    InputStream*     m_stream;       ///< Input stream used to access the file's data
-    bool             m_streamOwned;  ///< Is the stream internal or external?
-    Uint64           m_sampleOffset; ///< Sample Read Position
-    Uint64           m_sampleCount;  ///< Total number of samples in the file
-    unsigned int     m_channelCount; ///< Number of channels of the sound
-    unsigned int     m_sampleRate;   ///< Number of samples per second
+    class impl;
+    std::unique_ptr<impl> pimpl;
 };
 
 } // namespace sf
